@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "time-table-reminder-11-2",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

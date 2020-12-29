@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students Score</title>
+</head>
+<body bgcolor="#cccccc">
+	<center>
+	<table border="1" cellspacing="5" bgcolor="white">
+		<caption><b>Input Scores</b></caption>
+		<tr>
+			<th rowspan="2">Name</th>
+			<th colspan="7">Subject Score</th>
+
+		</tr>
+		<tr>
+			<th>Math</th>
+			<th>English</th>
+			<th>Arabic</th>
+			<th>Science</th>
+			<th>Elective</th>
+			<th>Islamic</th>
+			<th>Moral Education</th>
+		</tr>
+		<tr>
+			<td><input type="text" id="tname"></td>
+			<td><input type="text" id="tfm"></td>
+			<td><input type="text" id="tfj"></td>
+			<td><input type="text" id="tfd"></td>
+			<td><input type="text" id="tfn"></td>
+			<td><input type="text" id="tfk"></td>
+			<td><input type="text" id="tfs"></td>
+			<td><input type="text" id="tfa"></td>
+		</tr>
+		<tr>
+			<th colspan="8" height="30"><input type="submit" style="height: 30px; width: 300px;" value="Add To Table" onclick="mySub()"></th>
+		</tr>	
+	</table>
+	<br>
+	<table border="1" cellspacing="5" bgcolor="white" height="100" width="500" cellpadding="5" id="TableScore">
+		<caption><b>Scores</b></caption>
+		<tr>
+			<th width="200">Name</th>
+			<th>Score Total</th>
+			<th>Average</th>
+			<th>Pass/Fail</th>
+		</tr>
+		
+	</table>
+	</center>
+	<script type="text/javascript">
+		function mySub(){
+			var nam, m, j, d, n, k, s, a, to, av;
+			nam=(document.getElementById('tname').value);
+			m=parseFloat(document.getElementById('tfm').value);
+			j=parseFloat(document.getElementById('tfj').value);
+			d=parseFloat(document.getElementById('tfd').value);
+			n=parseFloat(document.getElementById('tfn').value);
+			k=parseFloat(document.getElementById('tfk').value);
+			s=parseFloat(document.getElementById('tfs').value);
+            a=parseFloat(document.getElementById('tfa').value);
+			//caculate
+			to=m+j+d+n+k+s+a;
+			av=to/7;
+			//Display on Table
+			var newTable = document.getElementById('TableScore');
+			var row = newTable.insertRow(-1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(0);
+			var cell3 = row.insertCell(0);
+			var cell4 = row.insertCell(0);
+
+			cell4.innerHTML= nam;
+			cell3.innerHTML=to;
+			cell2.innerHTML = av;
+
+			if(av>=50){
+				cell1.innerHTML="<font color=blue>Pass</font>";
+			}else{
+				cell1.innerHTML="<font color=red>Fail</font>";
+			}
+		}
+	</script>
+
+
+
+
+</body>
+</html>

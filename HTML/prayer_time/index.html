@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.js"></script>
+    <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.min.js">
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Time API MADE BY ABDALRHMAN</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-container>div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 20px 0;
+            font-size: 16pt;
+        }
+
+        .item1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+
+        .item2 {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .item3 {
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+        <div class="item1" id="title">Date</div>
+        <div class="item2">الفجر</div>
+        <div class="item3" id="1-b">1-b</div>
+        <div class="item2">شروق الشمس</div>
+        <div class="item3" id="2-b">2-b</div>
+        <div class="item2">الظهر</div>
+        <div class="item3" id="3-b">3-b</div>
+        <div class="item2">العصر</div>
+        <div class="item3" id="4-b">4-b</div>
+        <div class="item2">المغرب</div>
+        <div class="item3" id="5-b">5-b</div>
+        <div class="item2">العشاء</div>
+        <div class="item3" id="6-b">6-b</div>
+    </div>
+    <script type="text/javascript" src="sketch.js"></script>
+
+
+</body>
+
+</html>

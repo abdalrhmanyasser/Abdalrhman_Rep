@@ -1,0 +1,36 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-auto-rows: 107.92px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    border-radius: 5px;
+    background-color: #4e4545;
+}
+
+.wrapper>div {
+    border: 4px solid #00000060;
+    border-radius: 10px;
+    background-color: #ffffff50;
+    padding: 1em;
+    text-align: center;
+    color: #000000;
+}
+
+.time {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.nested {
+    border-radius: 5px;
+    background-color: #ffdbdb;
+    padding: 1em;
+}
