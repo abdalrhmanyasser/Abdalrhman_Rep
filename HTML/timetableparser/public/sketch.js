@@ -15,57 +15,12 @@ var thingy;
 var sound;
 var PeriodIndex = 0;
 var listing = [
-    [
-        "Arabic",
-        "Electives",
-        "Science",
-        "Math",
-        "break",
-        "English",
-        "Islamic",
-        "PE"
-    ],
-    [
-        "Science",
-        "Electives",
-        "Arabic",
-        "Math",
-        "break",
-        "PE",
-        "Moral Education",
-        "English"
-    ],
-    [
-        "Arabic",
-        "Math",
-        "Electives",
-        "PE",
-        "break",
-        "Science",
-        "English",
-        "Islamic"
-    ],
-    [
-        "English",
-        "Electives",
-        "Math",
-        "Islamic",
-        "break",
-        "Math",
-        "Arabic",
-        "Science"
-    ],
-    [
-        "PE",
-        "English",
-        "Electives",
-        "English",
-        "break",
-        "Arabic",
-        "Science",
-        "Math"
-    ]
-];
+    ['Math', 'Science', 'Electives', 'Arabic', 'Islamic', 'English', 'PE'], 
+    ['Arabic', 'Electives', 'Science', 'Islamic', 'English', 'Math', 'PE'],
+    ['English', 'Islamic', 'Math', 'Electives', 'Moral_Education', 'Arabic', 'Science'], 
+    ['PE', 'Arabic', 'Electives', 'Math', 'Science', 'English', 'Math'], 
+    ['English', 'Science', 'Math', 'Electives', 'PE', 'English', 'Arabic']
+    ];
 var dict = {
     "1": "07:55:08:40",
     "2": "08:35:09:25",

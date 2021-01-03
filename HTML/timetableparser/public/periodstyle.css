@@ -32,14 +32,14 @@
 .period16{
     grid-column-start: 2;  
     grid-column-end: 2; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
+    grid-row-start: 9; 
+    grid-row-end: 9; 
 }
 .period17{
     grid-column-start: 2;  
     grid-column-end: 2; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+    grid-row-start: 10; 
+    grid-row-end: 10; 
 }
 .period21{
     grid-column-start: 3; 
@@ -74,14 +74,14 @@
 .period26{
     grid-column-start: 3; 
     grid-column-end: 3; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
+    grid-row-start: 9; 
+    grid-row-end: 9; 
 }
 .period27{
     grid-column-start: 3; 
     grid-column-end: 3; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+    grid-row-start: 10; 
+    grid-row-end: 10; 
 }
 .period31{
     grid-column-start: 4; 
@@ -116,14 +116,14 @@
 .period36{
     grid-column-start: 4; 
     grid-column-end: 4; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
+    grid-row-start: 9; 
+    grid-row-end: 9; 
 }
 .period37{
     grid-column-start: 4; 
     grid-column-end: 4; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+    grid-row-start: 10; 
+    grid-row-end: 10; 
 }
 .period41{
     grid-column-start: 5; 
@@ -158,14 +158,14 @@
 .period46{
     grid-column-start: 5; 
     grid-column-end: 5; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
+    grid-row-start: 9; 
+    grid-row-end: 9; 
 }
 .period47{
     grid-column-start: 5; 
     grid-column-end: 5; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+    grid-row-start: 10; 
+    grid-row-end: 10; 
 }
 .period51{
     grid-column-start: 6; 
@@ -200,18 +200,12 @@
 .period56{
     grid-column-start: 6; 
     grid-column-end: 6; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
+    grid-row-start: 9; 
+    grid-row-end: 9; 
 }
 .period57{
     grid-column-start: 6; 
     grid-column-end: 6; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
-}
-.period58{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+    grid-row-start: 10; 
+    grid-row-end: 10; 
 }
