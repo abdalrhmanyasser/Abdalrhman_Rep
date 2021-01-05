@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Sphere",
+            "request": "launch",
+            "mainClass": "Sphere",
+            "projectName": "Visual Code_bb74102a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Shapes",
+            "request": "launch",
+            "mainClass": "Shapes",
+            "projectName": "Visual Code_bb74102a"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Cylinder",
             "request": "launch",
             "mainClass": "Cylinder",

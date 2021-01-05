@@ -28,8 +28,9 @@ var dict = {
     "4": "10:05:10:55",
     "5": "11:00:11:40",
     "6": "11:35:12:25",
-    "7": "12:20:13:10",
-    "8": "13:05:13:55"
+    "7": "12:25:13:35",
+    "8": "12:25:13:05",
+    "9": "13:05:13:55"
 };
 
 function preload() {
@@ -149,13 +150,31 @@ function setup() {
             secs;
         PeriodIndex = periodthigy(pdate) - 1;
         if (currentday != 5 && currentday != 6) {
-            var current_period_html = document.getElementById(
-                (
-                    "period" +
-                    (currentday + 1) +
-                    (PeriodIndex > 3 ? PeriodIndex : PeriodIndex + 1)
-                ).toString()
-            );
+            if (PeriodIndex > 5){
+                var current_period_html = document.getElementById(
+                    (
+                        "period" +
+                        (currentday + 1) +
+                        (PeriodIndex + 1)
+                    ).toString()
+                );
+            }else if (PeriodIndex > 3){
+                var current_period_html = document.getElementById(
+                    (
+                        "period" +
+                        (currentday + 1) +
+                        (PeriodIndex + 1)
+                    ).toString()
+                );
+            }else if (PeriodIndex < 3){
+                var current_period_html = document.getElementById(
+                    (
+                        "period" +
+                        (currentday + 1) +
+                        (PeriodIndex + 1)
+                    ).toString()
+                );
+            }
             if (current_period_html != null) {
                 current_period_html.style.backgroundColor = "#0000";
                 time_box.innerHTML =
@@ -187,7 +206,6 @@ function setup() {
             if (checkPeriod1()) {
                 thingy = true;
             }
-            var date = new Date();
         }
         pdate = new Date();
 
