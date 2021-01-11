@@ -10,7 +10,7 @@ body {
   top: 0;
   left: 0;
   background-color: #111;
-  transition: 0.5s;
+  transition: 1s;
   overflow-x: hidden;
   padding-top: 60px;
   white-space: nowrap;
