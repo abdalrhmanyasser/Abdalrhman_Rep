@@ -4,7 +4,7 @@ body {
 
 .sidebar {
   height: 100%;
-  width: 85px;
+  width: 65px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -17,7 +17,7 @@ body {
 }
 
 .sidebar a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 8px 8px 18px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -52,7 +52,7 @@ main .sidebar {
   padding-bottom: 40px;
 }
 #main {
-  margin-left: 85px;
+  margin-left: 65px;
   transition: margin-left 1.0s;
   transition-timing-function: cubic-bezier(0.63, -0.55, 0.54, 1.89);
 }

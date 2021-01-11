@@ -22,15 +22,15 @@ var listing = [
     ['English', 'Science', 'Math', 'Electives', 'PE', 'English', 'Arabic']
     ];
 var dict = {
-    "1": "07:55:08:40",
-    "2": "08:35:09:25",
-    "3": "09:20:10:10",
-    "4": "10:05:10:55",
+    "1": "08:00:08:40",
+    "2": "08:45:09:25",
+    "3": "09:30:10:10",
+    "4": "10:15:10:55",
     "5": "11:00:11:40",
-    "6": "11:35:12:25",
-    "7": "12:25:12:35",
-    "8": "12:25:13:05",
-    "9": "13:05:13:55"
+    "6": "11:45:12:25",
+    "7": "12:25:12:30",
+    "8": "12:35:13:10",
+    "9": "13:15:13:55"
 };
 
 function preload() {
@@ -101,6 +101,12 @@ function tab2(_currentPeriod) {
             tabs(url1, url2, url3);
             break;
         case "pe":
+            var url1 = "https://classroom.google.com/u/1/c/MTUzMjU3NzIyNjkw"; //N/a
+            var url2 = "https://meet.google.com/lookup/fwmtmrbfq2?authuser=1&hs=179"; //N/a
+            var url3 = ""; //N/a
+            tabs(url1, url2, url3);
+            break;
+        case "n/a":
             var url1 = ""; //N/a
             var url2 = ""; //N/a
             var url3 = ""; //N/a
@@ -170,11 +176,24 @@ function setup() {
 
             currentPeriod = listing[currentday][PeriodIndex];
             if (boolea == true) {
-                sound.play();
                 if (currentPeriod) {
-                    tab2(currentPeriod);
+                    sound.play();
                     notifyMe("you have : " + currentPeriod);
-                };
+                    tab2(currentPeriod);
+                }else{
+                    var dt1 = new Date(
+                        pdate.getFullYear(),
+                        pdate.getMonth(),
+                        pdate.getDate(),
+                        14,
+                        0,
+                        1,
+                        0
+                    );
+                    if (dt1.getTime() == pdate.getTime()) {
+                        tab2("n/a")
+                    };
+                }
                 boolea = false;
             }
             if (checkPeriod()) {
@@ -192,6 +211,7 @@ function setup() {
                 thingy = true;
             }
         }
+        date= new Date();
         pdate = new Date(
             date.getFullYear(),
             date.getMonth(),
@@ -200,7 +220,6 @@ function setup() {
             date.getMinutes(),
             date.getSeconds(), 
             0);
-
     }, 1000);
 }
 
@@ -231,9 +250,9 @@ function tabs(url1, url2, url3) {
             if (win3)
                 if (!win3.closed)
                     win3.close();
-            win1 = openInNewTab(url1, currentPeriod + "1");
-            win3 = openInNewTab(url3, currentPeriod + "3");
-            win2 = openInNewTab(url2, currentPeriod + "2");
+            win1 = openInNewTab(url1, "1");
+            win3 = openInNewTab(url3, "3");
+            win2 = openInNewTab(url2, "2");
             if (win2)
                 win2.focus();
         }
@@ -273,26 +292,25 @@ function periodthigy(time) {
 function checkPeriod1() {
     for (var key in dict) {
         if (key != 5 || key != 7) {
-            date = new Date();
             date = new Date(
-                date.getFullYear(),
-                date.getMonth(),
-                date.getDate(),
-                date.getHours(),
-                date.getMinutes(),
-                date.getSeconds(),
+                pdate.getFullYear(),
+                pdate.getMonth(),
+                pdate.getDate(),
+                pdate.getHours(),
+                pdate.getMinutes(),
+                pdate.getSeconds(),
                 0
             );
             s = dict[key].split(":");
             dt1 = new Date(
-                date.getFullYear(),
-                date.getMonth(),
-                date.getDate(),
+                pdate.getFullYear(),
+                pdate.getMonth(),
+                pdate.getDate(),
                 parseInt(s[0]),
-                parseInt(s[1]),
+                parseInt(s[1])- 10,
+                0,
                 0
             );
-
             if (date.getTime() == dt1.getTime()) {
                 return true;
             }
@@ -303,26 +321,25 @@ function checkPeriod1() {
 
 function checkPeriod() {
     for (var key in dict) {
-        date = new Date();
         date = new Date(
-            date.getFullYear(),
-            date.getMonth(),
-            date.getDate(),
-            date.getHours(),
-            date.getMinutes(),
-            date.getSeconds(),
+            pdate.getFullYear(),
+            pdate.getMonth(),
+            pdate.getDate(),
+            pdate.getHours(),
+            pdate.getMinutes(),
+            pdate.getSeconds(),
             0
         );
         s = dict[key].split(":");
         var dt2 = new Date(
-            date.getFullYear(),
-            date.getMonth(),
-            date.getDate(),
+            pdate.getFullYear(),
+            pdate.getMonth(),
+            pdate.getDate(),
             parseInt(s[2]),
-            parseInt(s[3]),
+            parseInt(s[3]) + 5,
+            0,
             0
         );
-
         if (date.getTime() == dt2.getTime()) {
             return true;
         }
