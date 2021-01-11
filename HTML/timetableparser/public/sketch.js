@@ -28,7 +28,7 @@ var dict = {
     "4": "10:05:10:55",
     "5": "11:00:11:40",
     "6": "11:35:12:25",
-    "7": "12:25:13:35",
+    "7": "12:25:12:35",
     "8": "12:25:13:05",
     "9": "13:05:13:55"
 };
@@ -62,45 +62,45 @@ function openInNewTab(thing, currentperiod) {
     }
     return win;
 }
-function tab2() {
-    switch (currentPeriod) {
-        case "Science":
+function tab2(_currentPeriod) {
+    switch ((_currentPeriod).toLowerCase()) {
+        case "science":
             var url1 = "https://classroom.google.com/u/1/c/MTUyOTgyNzUyOTAz"; //google classroom
             var url2 = "https://meet.google.com/lookup/gekwp53xjl?authuser=1&hs=179"; //google Meet
             var url3 = "https://ptable.com/?lang=en#Properties"; //periodic table
             tabs(url1, url2, url3);
             break;
-        case "Electives":
+        case "electives":
             var url1 = "https://classroom.google.com/u/1/c/MTUzMDI1MDY0Nzgy"; //google classroom
             var url2 = "https://meet.google.com/lookup/egffjbewtc?authuser=1&hs=179"; //google Meet
             var url3 = ""; //periodic table
             tabs(url1, url2, url3);
             break;
-        case "Arabic":
+        case "arabic":
             var url1 = "https://classroom.google.com/u/1/c/MTUyNzA1NzgzNDUw"; //google classroom
             var url2 = "https://meet.google.com/lookup/bvm6h4ht4j?authuser=1&hs=179"; //google Meet
             var url3 = "https://sso.alefed.com/"; //alef education
             tabs(url1, url2, url3);
             break;
-        case "English":
+        case "english":
             var url1 = "https://classroom.google.com/u/1/c/MTU5MjU2MjM3NDAz"; //google classroom
             var url2 = "https://meet.google.com/lookup/ct4xgqea53?authuser=1&hs=179"; //google Meet
             var url3 = "";
             tabs(url1, url2, url3);
             break;
-        case "Math":
+        case "math":
             var url1 = "https://classroom.google.com/u/1/w/MTUyODYyNTUzNDI2/t/all"; //google classroom
             var url2 = "https://meet.google.com/lookup/bwzrmrjprl?authuser=1&hs=179"; //google Meet
             var url3 = "";
             tabs(url1, url2, url3);
             break;
-        case "Islamic":
+        case "islamic":
             var url1 = "https://classroom.google.com/u/1/c/MTUyOTAwMjgyMzU5"; //google classroom
             var url2 = "https://meet.google.com/lookup/g6hjyuedmt?authuser=1&hs=179"; //google Meet
             var url3 = "https://equran.me/browse.html"; //quran
             tabs(url1, url2, url3);
             break;
-        case "PE":
+        case "pe":
             var url1 = ""; //N/a
             var url2 = ""; //N/a
             var url3 = ""; //N/a
@@ -148,33 +148,18 @@ function setup() {
             pdate.getMinutes().toString() +
             ":" +
             secs;
-        PeriodIndex = periodthigy(pdate) - 1;
+        PeriodIndex = periodthigy(pdate);
         if (currentday != 5 && currentday != 6) {
-            if (PeriodIndex > 5){
-                var current_period_html = document.getElementById(
-                    (
-                        "period" +
-                        (currentday + 1) +
-                        (PeriodIndex + 1)
-                    ).toString()
-                );
-            }else if (PeriodIndex > 3){
-                var current_period_html = document.getElementById(
-                    (
-                        "period" +
-                        (currentday + 1) +
-                        (PeriodIndex + 1)
-                    ).toString()
-                );
-            }else if (PeriodIndex < 3){
-                var current_period_html = document.getElementById(
-                    (
-                        "period" +
-                        (currentday + 1) +
-                        (PeriodIndex + 1)
-                    ).toString()
-                );
-            }
+            
+            PeriodIndex -= 1;
+            
+            var current_period_html = document.getElementById(
+                (
+                    "period" +
+                    (currentday + 1) +
+                    (PeriodIndex + 1)
+                ).toString()
+            );
             if (current_period_html != null) {
                 current_period_html.style.backgroundColor = "#0000";
                 time_box.innerHTML =
@@ -187,9 +172,9 @@ function setup() {
             if (boolea == true) {
                 sound.play();
                 if (currentPeriod) {
-                    tab2();
+                    tab2(currentPeriod);
                     notifyMe("you have : " + currentPeriod);
-                } else notifyMe("you have : break");
+                };
                 boolea = false;
             }
             if (checkPeriod()) {
@@ -207,7 +192,14 @@ function setup() {
                 thingy = true;
             }
         }
-        pdate = new Date();
+        pdate = new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate(),
+            date.getHours(), 
+            date.getMinutes(),
+            date.getSeconds(), 
+            0);
 
     }, 1000);
 }
@@ -221,7 +213,7 @@ onkeydown = onkeyup = function (e) {
     if (map[17] && map[16] && map[65]) { // CTRL+SHIFT+A
         // CTRL+SHIFT+A
         if (currentPeriod) {
-            tab2();
+            tab2(currentPeriod);
         }
         map = []
     }
@@ -272,13 +264,15 @@ function periodthigy(time) {
             parseInt(e[3]),
             0
         );
-        if (time >= dt1 && time <= dt2) return key;
+        if (time >= dt1 && time <= dt2 && key < 5) return key;
+        else if (time >= dt1 && time <= dt2 && key == 6) return key - 1;
+        else if (time >= dt1 && time <= dt2 && key > 7) return key - 2;
     }
 }
 
 function checkPeriod1() {
     for (var key in dict) {
-        if (key != 4) {
+        if (key != 5 || key != 7) {
             date = new Date();
             date = new Date(
                 date.getFullYear(),

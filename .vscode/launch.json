@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Point",
+            "request": "launch",
+            "mainClass": "Point",
+            "projectName": "Visual Code_bb74102a"
+        },
+        {
+            "type": "java",
+            "name": "Launch Speed",
+            "request": "launch",
+            "mainClass": "Speed",
+            "projectName": "Visual Code_bb74102a"
+        },
+        {
+            "type": "java",
+            "name": "Launch speed",
+            "request": "launch",
+            "mainClass": "speed",
+            "projectName": "Visual Code_bb74102a"
+        },
+        {
+            "type": "java",
+            "name": "Launch calculator",
+            "request": "launch",
+            "mainClass": "calculator",
+            "projectName": "Visual Code_bb74102a"
+        },
+        {
+            "type": "java",
             "name": "Launch Sphere",
             "request": "launch",
             "mainClass": "Sphere",

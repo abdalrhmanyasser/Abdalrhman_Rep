@@ -8,79 +8,95 @@
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link href="periodstyle.css" rel="stylesheet" type="text/css">
     <link href="daystyle.css" rel="stylesheet" type="text/css">
+    <link href="sidebarCSS.css" rel="stylesheet" type="text/css">
     <link rel="icon"
         href="https://cdn.glitch.com/348880f4-28cd-46f9-a35b-a5e6d6061d82%2Fcalendar-icon-white-18.jpg?v=1606365045468">
     <link href="leftstyle.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Time Table Reminder - Made by Abdalrhman</title>
 </head>
+<body style="background-color: #46454e; margin: 0px;">
 
-<body style="background-color: #46454e;">
-    <div class="wrapper" style="height: 100%;">
-        <div class="time" id="time">time</div>
-
-        <div class="w1">sunday</div>
-        <div class="w2">monday</div>
-        <div class="w3">tuesday</div>
-        <div class="w4">wednesday</div>
-        <div class="w5">thursday</div>
-
-        <div class="p1">1<br>8:00 - 8:40</div>
-        <div class="p2">2<br>8:45 - 9:25</div>
-        <div class="p3">3<br>9:30 - 10:10</div>
-        <div class="p4">4<br>10:15 - 10:55</div>
-
-        <div class="break1">break<br>11:00 - 11:40</div>
-        <div class="break12">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
-
-        <div class="p6">5<br>11:45 - 12:25</div>
-        
-        <div class="break2">break<br>12:25 - 12:35</div>
-        <div class="break22">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
-
-        <div class="p7">6<br>12:35 - 1:15</div>
-        <div class="p8">7<br>1:15 - 1:55</div>
-
-        <div class="period11" id="period11">Math</div>
-        <div class="period12" id="period12">science</div>
-        <div class="period13" id="period13">Electives</div>
-        <div class="period14" id="period14">Arabic</div>
-        <div class="period15" id="period15">Islamic</div>
-        <div class="period16" id="period16">English</div>
-        <div class="period17" id="period17">Pe</div>
-
-        <div class="period21" id="period21">Arabic</div>
-        <div class="period22" id="period22">Electives</div>
-        <div class="period23" id="period23">science</div>
-        <div class="period24" id="period24">Islamic</div>
-        <div class="period25" id="period25">English</div>
-        <div class="period26" id="period26">Math</div>
-        <div class="period27" id="period27">PE</div>
-
-        <div class="period31" id="period31">English</div>
-        <div class="period32" id="period32">Islamic</div>
-        <div class="period33" id="period33">Math</div>
-        <div class="period34" id="period34">Electives</div>
-        <div class="period35" id="period35">Moral Education</div>
-        <div class="period36" id="period36">Arabic</div>
-        <div class="period37" id="period37">science</div>
-
-        <div class="period41" id="period41">PE</div>
-        <div class="period42" id="period42">Arabic</div>
-        <div class="period43" id="period43">Electives</div>
-        <div class="period44" id="period44">Math</div>
-        <div class="period45" id="period45">science</div>
-        <div class="period46" id="period46">English</div>
-        <div class="period47" id="period47">Math</div>
-
-        <div class="period51" id="period51">English</div>
-        <div class="period52" id="period52">science</div>
-        <div class="period53" id="period53">Math</div>
-        <div class="period54" id="period54">Electives</div>
-        <div class="period55" id="period55">PE</div>
-        <div class="period56" id="period56">English</div>
-        <div class="period57" id="period57">Arabic</div>
+    <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+        <a href="#" onclick="tab2('Science');"><span><i class="material-icons">science</i><span class="icon-text">Science</span></a><br>
+        <a href="#" onclick="tab2('Electives');"><i class="material-icons">lightbulb</i><span class="icon-text"></span>Electives</a></span>
+        </a><br>
+        <a href="#" onclick="tab2('Arabic');"><i class="material-icons">local_library</i><span class="icon-text"></span>Arabic</span></a><br>
+        <a href="#" onclick="tab2('English');"><i class="material-icons">local_library</i><span class="icon-text"></span>English</span></a><br>
+        <a href="#" onclick="tab2('Math');"><i class="material-icons">plus_one</i><span class="icon-text"></span>Math<span></a><br>
+        <a href="#" onclick="tab2('Islamic');"><i class="material-icons">face</i><span class="icon-text"></span>Islamic <span></a><br>
+        <a href="#" onclick="tab2('Pe');"><i class="material-icons">sports_soccer</i><span class="icon-text"></span>PE<span></a>
     </div>
+
+    <div id="main">
+        <div class="wrapper">
+            <div class="time" id="time">time</div>
+
+            <div class="w1">sunday</div>
+            <div class="w2">monday</div>
+            <div class="w3">tuesday</div>
+            <div class="w4">wednesday</div>
+            <div class="w5">thursday</div>
+
+            <div class="p1">1<br>8:00 - 8:40</div>
+            <div class="p2">2<br>8:45 - 9:25</div>
+            <div class="p3">3<br>9:30 - 10:10</div>
+            <div class="p4">4<br>10:15 - 10:55</div>
+
+            <div class="break1">break<br>11:00 - 11:40</div>
+            <div class="break12">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
+
+            <div class="p6">5<br>11:45 - 12:25</div>
+            
+            <div class="break2">break<br>12:25 - 12:35</div>
+            <div class="break22">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
+
+            <div class="p7">6<br>12:35 - 1:15</div>
+            <div class="p8">7<br>1:15 - 1:55</div>
+
+            <div class="period11" id="period11">Math</div>
+            <div class="period12" id="period12">science</div>
+            <div class="period13" id="period13">Electives</div>
+            <div class="period14" id="period14">Arabic</div>
+            <div class="period15" id="period15">Islamic</div>
+            <div class="period16" id="period16">English</div>
+            <div class="period17" id="period17">Pe</div>
+
+            <div class="period21" id="period21">Arabic</div>
+            <div class="period22" id="period22">Electives</div>
+            <div class="period23" id="period23">science</div>
+            <div class="period24" id="period24">Islamic</div>
+            <div class="period25" id="period25">English</div>
+            <div class="period26" id="period26">Math</div>
+            <div class="period27" id="period27">PE</div>
+
+            <div class="period31" id="period31">English</div>
+            <div class="period32" id="period32">Islamic</div>
+            <div class="period33" id="period33">Math</div>
+            <div class="period34" id="period34">Electives</div>
+            <div class="period35" id="period35">Moral Education</div>
+            <div class="period36" id="period36">Arabic</div>
+            <div class="period37" id="period37">science</div>
+
+            <div class="period41" id="period41">PE</div>
+            <div class="period42" id="period42">Arabic</div>
+            <div class="period43" id="period43">Electives</div>
+            <div class="period44" id="period44">Math</div>
+            <div class="period45" id="period45">science</div>
+            <div class="period46" id="period46">English</div>
+            <div class="period47" id="period47">Math</div>
+
+            <div class="period51" id="period51">English</div>
+            <div class="period52" id="period52">science</div>
+            <div class="period53" id="period53">Math</div>
+            <div class="period54" id="period54">Electives</div>
+            <div class="period55" id="period55">PE</div>
+            <div class="period56" id="period56">English</div>
+            <div class="period57" id="period57">Arabic</div>
+        </div>
+    </div>
+    <script src="sidebarJS.js"></script>
     <script src="sketch.js">
 
     </script>
