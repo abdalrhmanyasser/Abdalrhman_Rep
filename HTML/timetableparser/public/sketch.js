@@ -15,11 +15,11 @@ var thingy;
 var sound;
 var PeriodIndex = 0;
 var listing = [
-    ['Math', 'Science', 'Electives', 'Arabic', 'Islamic', 'English', 'PE'], 
-    ['Arabic', 'Electives', 'Science', 'Islamic', 'English', 'Math', 'PE'],
-    ['English', 'Islamic', 'Math', 'Electives', 'Moral_Education', 'Arabic', 'Science'], 
-    ['PE', 'Arabic', 'Electives', 'Math', 'Science', 'English', 'Math'], 
-    ['English', 'Science', 'Math', 'Electives', 'PE', 'English', 'Arabic']
+    ['English', 'Math', 'ESS', 'Electives', 'Science', 'Arabic', 'Islamic'], 
+    ['Math', 'ESS', 'Math', 'Electives', 'English', 'Science', 'Arabic'], 
+    ['English', 'Arabic', 'Science', 'Electives', 'Math', 'ESS', 'Moral_Education'], 
+    ['English', 'Science', 'Math', 'Electives', 'Islamic', 'ESS', 'Arabic'], 
+    ['English', 'ESS', 'Science', 'Arabic', 'Math', 'English', 'Islamic']
     ];
 var dict = {
     "1": "08:00:08:40",
@@ -35,7 +35,7 @@ var dict = {
 
 function preload() {
     sound = new Audio(
-        "https://cdn.glitch.com/348880f4-28cd-46f9-a35b-a5e6d6061d82%2FES_Beep%20Tone%20Signal%2054%20-%20SFX%20Producer.mp3?v=1606292991079"
+        "ES_Beep%20Tone%20Signal%2054%20-%20SFX%20Producer.mp3"
     );
 }
 
@@ -71,8 +71,8 @@ function tab2(_currentPeriod) {
             tabs(url1, url2, url3);
             break;
         case "electives":
-            var url1 = "https://classroom.google.com/u/1/c/MTUzMDI1MDY0Nzgy"; //google classroom
-            var url2 = "https://meet.google.com/lookup/egffjbewtc?authuser=1&hs=179"; //google Meet
+            var url1 = "https://classroom.google.com/u/1/c/MjQ2MjEwNjgwNzkw"; //google classroom
+            var url2 = "https://meet.google.com/lookup/doqoq3pvcu?authuser=1&hs=179"; //google Meet
             var url3 = ""; //periodic table
             tabs(url1, url2, url3);
             break;
@@ -84,8 +84,8 @@ function tab2(_currentPeriod) {
             break;
         case "english":
             var url1 = "https://classroom.google.com/u/1/c/MTU5MjU2MjM3NDAz"; //google classroom
-            var url2 = "https://meet.google.com/lookup/ct4xgqea53?authuser=1&hs=179"; //google Meet
-            var url3 = "";
+            var url2 = "https://readtheory.org/app/student/quiz";
+            var url3 = "https://meet.google.com/lookup/ct4xgqea53?authuser=1&hs=179"; //google Meet
             tabs(url1, url2, url3);
             break;
         case "math":
@@ -100,9 +100,9 @@ function tab2(_currentPeriod) {
             var url3 = "https://equran.me/browse.html"; //quran
             tabs(url1, url2, url3);
             break;
-        case "pe":
-            var url1 = "https://classroom.google.com/u/1/c/MTUzMjU3NzIyNjkw"; //N/a
-            var url2 = "https://meet.google.com/lookup/fwmtmrbfq2?authuser=1&hs=179"; //N/a
+        case "ess":
+            var url1 = "https://classroom.google.com/u/1/c/MjQ2MjE0NzY4NzMx"; //N/a
+            var url2 = "https://meet.google.com/lookup/d2nnvbhmtn?authuser=1&hs=179"; //N/a
             var url3 = ""; //N/a
             tabs(url1, url2, url3);
             break;

@@ -330,7 +330,7 @@ void drawSquareRootfunc(float a, float b, float c){
   float newwidth = width/2 - 20;
   px = 0; py = 0;
   stroke(0, 0, 0, 0);
-  for(float x=0; x<540; x+=.1){
+  for(float x=b; x<540; x+=.1){
     y = newheight - (a*(sqrt(x/40 - b)*40)*40+c);
     if (y > 140){
       line(px + newwidth, py, x + newwidth, y);
