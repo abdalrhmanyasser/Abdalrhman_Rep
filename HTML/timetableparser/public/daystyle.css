@@ -1,32 +1,32 @@
-.w1 {
+.period10 {
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 
-.w2 {
+.period20 {
     grid-column-start: 3;
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 
-.w3 {
+.period30 {
     grid-column-start: 4;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 
-.w4 {
+.period40 {
     grid-column-start: 5;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 1;
 }
 
-.w5 {
+.period50 {
     grid-column-start: 6;
     grid-column-end: 6;
     grid-row-start: 1;

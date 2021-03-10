@@ -2,36 +2,81 @@
 <html>
 
 <head>
+    <!-- links and meta data for website functioning -->
+    <!-- please  vist my github repository for more info about this project -->
+    <!--  -->
     <meta charset="utf-8">
+    <link rel="stylesheet" href="text.css">
     <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
     <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/addons/p5.sound.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link href="periodstyle.css" rel="stylesheet" type="text/css">
     <link href="daystyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="gridStyleing.css">
     <link href="sidebarCSS.css" rel="stylesheet" type="text/css">
-    <link rel="icon"
-        href="https://time-table-reminder.firebaseapp.com/calendar-icon-white.jpg">
+    <meta name="google-signin-client_id"
+        content="53486922153-8rhm1bn76auo7hdd63gst568hlvqe6vj.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="icon" href="https://time-table-reminder.firebaseapp.com/calendar-icon-white.jpg">
     <link href="leftstyle.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Time Table Reminder - Made by Abdalrhman</title>
 </head>
-<body style="background-color: #46454e; margin: 0px;">
 
+<body>
+    <!-- side bar -->
     <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
-        <a id="title" href="https://time-table-reminder.firebaseapp.com"><span><i class="material-icons">book_online</i></span><span class="icon-text">Time Table Reminder</span></a>
-        <a href="#" onclick="tab2('Science');"><span><i class="material-icons">science</i><span class="icon-text">Science</span></a><br>
-        <a href="#" onclick="tab2('Electives');"><i class="material-icons">lightbulb</i><span class="icon-text"></span>Electives</a></span>
-        </a><br>
-        <a href="#" onclick="tab2('Arabic');"><i class="material-icons">local_library</i><span class="icon-text"></span>Arabic</span></a><br>
-        <a href="#" onclick="tab2('English');"><i class="material-icons">local_library</i><span class="icon-text"></span>English</span></a><br>
-        <a href="#" onclick="tab2('Math');"><i class="material-icons">plus_one</i><span class="icon-text"></span>Math<span></a><br>
-        <a href="#" onclick="tab2('Islamic');"><i class="material-icons">face</i><span class="icon-text"></span>Islamic <span></a><br>
-        <a href="#" onclick="tab2('Pe');"><i class="material-icons">sports_soccer</i><span class="icon-text"></span>PE<span></a>
-    </div>
+        <a id="title" href="https://time-table-reminder.firebaseapp.com"><span><i
+                    class="material-icons">book_online</i></span><span class="icon-text">Time Table Reminder</span></a>
 
+        <a href="#" onclick="tab2('Science');"><span><i class="material-icons">science</i></span><span
+                class="icon-text">Science</span></a>
+                <br>
+        <a href="#" onclick="tab2('Electives');"><span><i class="material-icons">lightbulb</i></span><span
+                class="icon-text">Electives</span></a>
+                <br>
+        <a href="#" onclick="tab2('Arabic');"><span><i class="material-icons">local_library</i></span><span
+                class="icon-text">Arabic</span></span></a>
+                <br>
+        <a href="#" onclick="tab2('English');"><span><i class="material-icons">local_library</i></span><span
+                class="icon-text"></span>English</span></a>
+                <br>
+        <a href="#" onclick="tab2('Math');"><span><i class="material-icons">plus_one</i></span><span
+                class="icon-text">Math</span></a>
+                <br>
+        <a href="#" onclick="tab2('Islamic');"><span><i class="material-icons">face</i></span><span
+                class="icon-text">Islamic</span></a>
+                <br>
+        <a href="#" onclick="tab2('ESS');"><span><i class="material-icons">history_edu</i></span><span
+                class="icon-text">World History</span></a>
+                <br>
+        <a id="openbtn" href="#" onclick="switchForm()"><span><i class="material-icons">account_circle</i></span><span
+                class="icon-text">Open</span></a>
+    </div>
+    <!-- Sign in Form, using google sign in, this is opened through the switchForm and openForm methods in sketch.js -->
+    <div class="form-popup" id="myForm">
+        <div class="form-container">
+            <label for="authuser">
+                Your Authuntication User Number
+                <br>
+                <a href="learn more.html">Learn more</a>
+                <br>
+            </label>
+            <input onchange="authuserChange()" type="number" id="authuser" name="authuser">
+            <br>
+            <br>
+            <div id="authorize_button" class="g-signin2" data-onsuccess="onSignIn"></div>
+            <br>
+            <button id="signout_button" class="btn" onclick="signOut()">Sign out :(</button>
+            <button class="btn" onclick="closeForm()">Close</button>
+        </div>
+    </div>
+    <!-- this is main div -->
     <div id="main">
-        <div class="wrapper">
+        <!-- this is the time table, ideas of making it change dynamically -->
+        <div id="wrapper" class="wrapper">
+            <!-- time and day and periods, meaning left cells and top cells -->
             <div class="time" id="time">time</div>
 
             <div class="w1">sunday</div>
@@ -49,13 +94,13 @@
             <div class="break12">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
 
             <div class="p6">5<br>11:45 - 12:25</div>
-            
+
             <div class="break2">break<br>12:25 - 12:35</div>
             <div class="break22">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
 
             <div class="p7">6<br>12:35 - 1:15</div>
             <div class="p8">7<br>1:15 - 1:55</div>
-
+            <!-- main cells of the table -->
             <div class="period11" id="period11">English</div>
             <div class="period12" id="period12">Math</div>
             <div class="period13" id="period13">ESS</div>
@@ -96,11 +141,33 @@
             <div class="period56" id="period56">English</div>
             <div class="period57" id="period57">Islamic</div>
         </div>
+        <!-- this is the personalized part of the program, this is opened through the side bar button -->
+        <div id="personalised" class="personalised">
+            <div id="signed_in_content">
+                <!-- main class moves with the sidebar -->
+                <div class="main">
+                    <h1 class="text" id="Greetings">Hello There</h1>
+                    <h3 class="text" id="Greetings_email">sign in to see all data</h3>
+                    <button
+                        style="border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;background-color: #555555;"
+                        onclick="listCourses()">List Courses</button>
+                    <button id="openFormBtn"
+                        style="border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: none;font-size: 16px;margin: 4px 2px;cursor: pointer;background-color: #555555;position:absolute;right:50px;top:10px;"
+                        onclick="openForm()">Sign-In Form</button>
+                    <div id="content"
+                        style="display: grid;grid-template-columns: repeat(13, 1fr);grid-auto-rows: 75px;border-radius: 5px;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="sidebarJS.js"></script>
-    <script src="sketch.js">
-
+    <!-- scripts for sign in and main functionality part of this program -->
+    <!-- do not remove i repeat do not remove -->
+    <!-- i dont think its effeciant to put all the code in one file but its already done -->
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+    <script src="sketch.js"></script>
 </body>
 
 </html>

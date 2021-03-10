@@ -10,7 +10,7 @@ body {
   top: 0;
   left: 0;
   background-color: #111;
-  transition: 1.0s cubic-bezier(0.63, -0.55, 0.54, 1.89);
+  transition: 1.0s cubic-bezier(0.63, -0.25, 0.54, 1.25);
   overflow-x: hidden;
   padding-top: 10px;
   white-space: nowrap;
@@ -54,7 +54,7 @@ main .sidebar {
 #main {
   margin-left: 65px;
   transition: margin-left 1.0s;
-  transition-timing-function: cubic-bezier(0.63, -0.55, 0.54, 1.89);
+  transition-timing-function: cubic-bezier(0.63, -0.25, 0.54, 1.25);
 }
 
 @media screen and (max-height: 450px) {

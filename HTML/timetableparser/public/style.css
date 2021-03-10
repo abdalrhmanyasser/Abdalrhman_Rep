@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 66.3px;
+    grid-auto-rows: 10%;
 }
 
 * {
@@ -10,11 +10,11 @@
 
 .wrapper {
     border-radius: 5px;
-    background-color: #4e4545;
+    background-color: #454e45;
 }
 
 .wrapper>div {
-    border: 4px solid #00000060;
+    border: 1px solid #00000060;
     border-radius: 10px;
     background-color: #ffffff50;
     padding: 1em;
@@ -28,9 +28,52 @@
     grid-row-start: 1;
     grid-row-end: 1;
 }
+body{background-color: #46454e; margin: 0px;}
+.btn{
+    border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;background-color: #303030;
+}
+/* this is form styling */
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
 
-.nested {
-    border-radius: 5px;
-    background-color: #ffdbdb;
-    padding: 1em;
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+
+
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
 }
