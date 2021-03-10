@@ -1,4 +1,2 @@
 # Abdalrhman_Rep
-HALLLLLLLOOOOOOOO
-
-PLEASE DONT USE ANY OF THE ABOVE CODE ALL CODE IS UNDER
+complete copy pasting of the code will not be tolirated, using it for creative puposes and education is allowed
