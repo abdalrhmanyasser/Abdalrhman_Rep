@@ -6,6 +6,7 @@
 	],
 	"settings": {
 		"maven.view": "hierarchical",
-		"liveServer.settings.multiRootWorkspaceName": "Abdalrhman Yasser"
+		"liveServer.settings.multiRootWorkspaceName": "Abdalrhman Yasser",
+		"python.pythonPath": "C:\\Program Files\\Python39\\python.exe"
 	}
 }

@@ -1,0 +1,1 @@
+print(round(int(input("Enter weight in KG")) * 2.20462, 2))
