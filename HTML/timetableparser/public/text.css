@@ -63,11 +63,12 @@ pre.text {
 }
 .personalised{
     display: none;
+    margin:20px;
 }
 #openbtn{
-    margin-top:30px
-}
-#signed_in_content{
-    display: none;
-    margin: 3em;
+    margin-top:30px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 10px;
+    right: 20px;
 }

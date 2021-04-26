@@ -9,11 +9,6 @@ except:
     file = open(c_path, "rt")
 thing = file.readlines()
 
-for i in range(7):
+for i in range(5):
     thing[i] = thing[i].replace("\n", "", -1).split(" ")
-for _ in range(5):
-    final_var.append([])
-for j in range(5):
-    for i in range(7):
-        final_var[j].append(thing[i][j])
-print(final_var)
+print("thingy : ",thing)

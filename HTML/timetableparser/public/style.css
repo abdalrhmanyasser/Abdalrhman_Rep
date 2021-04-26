@@ -1,7 +1,7 @@
 .wrapper {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 10%;
+    grid-auto-rows: 73.7px;
 }
 
 * {
@@ -28,10 +28,29 @@
     grid-row-start: 1;
     grid-row-end: 1;
 }
-body{background-color: #46454e; margin: 0px;}
-.btn{
-    border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin: 4px 2px;cursor: pointer;background-color: #303030;
+
+body {
+    background-color: #46454e;
+    margin: 0px;
 }
+
+.btn {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #555555;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
 /* this is form styling */
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
@@ -42,7 +61,6 @@ body{background-color: #46454e; margin: 0px;}
     cursor: pointer;
     opacity: 0.8;
     position: fixed;
-    bottom: 23px;
     right: 28px;
     width: 280px;
 }
@@ -51,8 +69,8 @@ body{background-color: #46454e; margin: 0px;}
 .form-popup {
     display: none;
     position: fixed;
-    bottom: 0;
-    right: 15px;
+    bottom: 0px;
+    right: 0px;
     border: 3px solid #f1f1f1;
     z-index: 9;
 }
@@ -62,14 +80,6 @@ body{background-color: #46454e; margin: 0px;}
     max-width: 300px;
     padding: 10px;
     background-color: white;
-}
-
-
-
-
-/* Add a red background color to the cancel button */
-.form-container .cancel {
-    background-color: red;
 }
 
 /* Add some hover effects to buttons */
