@@ -1,0 +1,1 @@
+print(input("input a sentance : ").count(" ")+1)

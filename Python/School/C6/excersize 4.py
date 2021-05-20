@@ -1,0 +1,1 @@
+print(input("enter a sentance : ").replace("a", "e"))
