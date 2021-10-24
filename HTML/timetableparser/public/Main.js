@@ -104,6 +104,10 @@ function tab2(_currentPeriod) {
             tabs(url1, url2, url3);
             break;
         case "n/a":
+            var url1 = ""; //N/a
+            var url2 = ""; //N/a
+            var url3 = ""; //N/a
+            tabs(url1, url2, url3);
             break;
     }
 }
