@@ -1,5 +1,6 @@
 var sound;
-var i = 50;
+var i = 55;
+
 /**
  * opening sidebar / closing it
  */
@@ -34,6 +35,9 @@ function notifyMe(message) {
         Notification.requestPermission(function (permission) {
             if (permission === "granted") {
                 var notification = new Notification("You will recieve messages here");
+                setTimeout(() => {
+                    var notification = new Notification(message);
+                }, 1000);
             }
         });
     }
@@ -57,53 +61,50 @@ function openInNewTab(link, currentperiod) {
  */
 function tab2(_currentPeriod) {
     switch ((_currentPeriod).toLowerCase()) {
-        case "science":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MTUyOTgyNzUyOTAz"; //google classroom
-            var url2 = "https://meet.google.com/lookup/gekwp53xjl?authuser=" + authuser + "&hs=179"; //google Meet
-            var url3 = "https://ptable.com/?lang=en#Properties"; //periodic table
-            tabs(url1, url2, url3);
-            break;
         case "electives":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MjQ2MjEwNjgwNzkw"; //google classroom
-            var url2 = "https://meet.google.com/lookup/doqoq3pvcu?authuser=" + authuser + "&hs=179"; //google Meet
-            var url3 = ""; //periodic table
+            var url1 = "https://classroom.google.com/u/" + authuser + "/h"; //google classroom
+            var url2 = ""; //clear
+            var url3 = ""; //clear
             tabs(url1, url2, url3);
             break;
         case "arabic":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MTUyNzA1NzgzNDUw"; //google classroom
-            var url2 = "https://meet.google.com/lookup/bvm6h4ht4j?authuser=" + authuser + "&hs=179"; //google Meet
-            var url3 = "https://sso.alefed.com/"; //alef education
+            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MzgyMjg0MDAwMzIw"; //google classroom
+            var url2 = ""; //clear
+            var url3 = ""; //clear
             tabs(url1, url2, url3);
             break;
         case "english":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MTU5MjU2MjM3NDAz"; //google classroom
-            var url2 = "https://meet.google.com/lookup/ct4xgqea53?authuser=" + authuser + "&hs=179"; //google Meet
-            var url3 = "https://readtheory.org/app/student/quiz";
-            tabs(url1, url2, url3);
-            break;
-        case "math":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/w/MTUyODYyNTUzNDI2/t/all"; //google classroom
-            var url2 = "https://meet.google.com/lookup/bwzrmrjprl?authuser=" + authuser + "&hs=179"; //google Meet
+            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MzgzMDY1NDA3Njc4"; //google classroom
+            var url2 = ""; //clear
             var url3 = "";
             tabs(url1, url2, url3);
             break;
+        case "math":
+            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MzgzMDk2NzA0MzQ4"; //google classroom
+            var url2 = "https://www.mathway.com/"; //mathway
+            var url3 = ""; //clear
+            tabs(url1, url2, url3);
+            break;
         case "islamic":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MTUyOTAwMjgyMzU5"; //google classroom
-            var url2 = "https://meet.google.com/lookup/g6hjyuedmt?authuser=" + authuser + "&hs=179"; //google Meet
+            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MzIwMDIxNDI3MDY3"; //google classroom
+            var url2 = ""; //clear
             var url3 = "https://equran.me/browse.html"; //quran
             tabs(url1, url2, url3);
             break;
-        case "ess":
-            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MjQ2MjE0NzY4NzMx"; //N/a
-            var url2 = "https://meet.google.com/lookup/d2nnvbhmtn?authuser=" + authuser + "&hs=179"; //N/a
-            var url3 = "https://www.savvasrealize.com/community/program"; //N/a
-            tabs(url1, url2, url3);
-            break;
-        case "n/a":
-            var url1 = ""; //N/a
+        case "social sciences":
+            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MzgyMDg3OTA4NTAz"; //google classroom
             var url2 = ""; //N/a
             var url3 = ""; //N/a
             tabs(url1, url2, url3);
+            break;
+        case "science block 9-12":
+            var url1 = "https://classroom.google.com/u/" + authuser + "/c/MzE5ODYyOTcyNTA3"; //google classroom
+            var url2 = ""; //N/a
+            var url3 = ""; //N/a
+            tabs(url1, url2, url3);
+            break;
+        case "n/a":
+            break;
     }
 }
 
@@ -113,8 +114,6 @@ function mousePressed() {
 
 // function happens when all functions are made and done
 function setup() {
-    // mimics the autoplay policy
-    getAudioContext().suspend();
 
     //this is for the sound effects
     sound = document.getElementById("audio");
@@ -162,26 +161,25 @@ function setup() {
             PeriodIndex -= 1;
             var fakePeriodIndex = PeriodIndex;
             // find document element to highlight
-            console.log(PeriodIndex, listing[currentday][PeriodIndex])
+            //console.log(PeriodIndex, listing[currentday][PeriodIndex])
             if (listing[currentday][PeriodIndex] != 'break' && listing[currentday][PeriodIndex] != undefined) {
-                if (listing[currentday][PeriodIndex - 1] == 'break'){
+                if (listing[currentday][PeriodIndex - 1] == 'break') {
                     fakePeriodIndex--;
                 }
-                if (listing[currentday][PeriodIndex - 2] == 'break'){
+                if (listing[currentday][PeriodIndex - 2] == 'break') {
                     fakePeriodIndex--;
                 }
-                if (listing[currentday][PeriodIndex - 3] == 'break'){
+                if (listing[currentday][PeriodIndex - 3] == 'break') {
                     fakePeriodIndex--;
                 }
-                if (listing[currentday][PeriodIndex - 4] == 'break'){
+                if (listing[currentday][PeriodIndex - 4] == 'break') {
                     fakePeriodIndex--;
                 }
-                console.log("we went in!!!!!", fakePeriodIndex, listing[currentday][PeriodIndex])
-
+                //console.log("we went in!!!!!", fakePeriodIndex, listing[currentday][PeriodIndex])
                 var current_period_html = document.getElementById(
                     (
-                        "period" +
-                        (currentday + 1) +
+                        Days[currentday] +
+                        " Period" + 
                         (fakePeriodIndex + 1)
                     ).toString()
                 );
@@ -189,7 +187,7 @@ function setup() {
                 if (current_period_html != null) {
                     current_period_html.style.backgroundColor = "#0000";
                     time_box.innerHTML =
-                        time_box.innerHTML + "<br>" + listing[currentday][PeriodIndex];
+                        time_box.innerHTML + "<br>" + (listing[currentday][PeriodIndex]).split("_").join(" ");
                 }
             } else {
                 time_box.innerHTML = time_box.innerHTML + "<br>" + "break";
@@ -199,9 +197,9 @@ function setup() {
             // checking boolean A because we dont want to do the update and the link sending before we finish another tick
             if (boolean_a == true) {
                 if (currentPeriod) {
-                    notifyMe("you have : " + currentPeriod);
+                    notifyMe("you have : " + currentPeriod.split("_").join(" "));
                     sound.play();
-                    setTimeout(tab2, 1100, (currentPeriod));
+                    setTimeout(tab2, 1100, currentPeriod.split("_").join(" "));
                 } else {
                     //checking if it the end of the day
                     var dt1 = new Date(
@@ -209,7 +207,7 @@ function setup() {
                         refoundDate.getMonth(),
                         refoundDate.getDate(),
                         13,
-                        30,
+                        55,
                         1,
                         0
                     );
@@ -221,15 +219,15 @@ function setup() {
                     //refind the element to highlight
                     var current_period_html = document.getElementById(
                         (
-                            "period" +
-                            (currentday + 1) +
+                            Days[currentday] +
+                            " Period" + 
                             (fakePeriodIndex + 1)
                         ).toString()
                     );
                     var previous_period_html = document.getElementById(
                         (
-                            "period" +
-                            (currentday + 1) +
+                            Days[currentday] + 
+                            " Period" +
                             (fakePeriodIndex)
                         ).toString()
                     );
@@ -239,7 +237,8 @@ function setup() {
                     if (current_period_html != null) {
                         current_period_html.style.backgroundColor = "#0000";
                         time_box.innerHTML =
-                            time_box.innerHTML + "<br>" + listing[currentday][PeriodIndex];
+                            time_box.innerHTML + "<br>" + ((listing[currentday][PeriodIndex]).split("_").join(" "));
+                        console.log((listing[currentday][PeriodIndex]).split("_").join(" "))
                     } else {
                         time_box.innerHTML = time_box.innerHTML + "<br>" + "break";
                     }
@@ -280,20 +279,19 @@ function setup() {
 
 // check if the user presses CTRL + SHIFT + Z to open the web pages
 // function is made by anonyms user, tweked to fit in my use case
-var map = {}; // You could also use an array
+var keyspressed = {}; // You could also use an array
 onkeydown = onkeyup = function (e) {
     e = e || event; // to deal with IE
-    map[e.keyCode] = e.type == 'keydown';
-    if (map[90]){
-    }
+    keyspressed[e.keyCode] = e.type == 'keydown';
+    if (keyspressed[90]) {}
     /* insert conditional here */
-    if (map[17] && map[16] && map[90]) { // CTRL+SHIFT+Z
+    if (keyspressed[17] && keyspressed[16] && keyspressed[90]) { // CTRL+SHIFT+Z
         print("hey")
         // CTRL+SHIFT+A
         if (currentPeriod) {
-            tab2(currentPeriod);
+            tab2(currentPeriod.split("_").join(" "));
         }
-        map = []
+        keyspressed = []
     }
 };
 
@@ -399,8 +397,8 @@ function checkPeriod() {
             refoundDate.getFullYear(),
             refoundDate.getMonth(),
             refoundDate.getDate(),
-            parseInt(s[2]),
-            parseInt(s[3]) + 5,
+            parseInt(s[0]),
+            parseInt(s[1]),
             0,
             0
         );
@@ -412,6 +410,9 @@ function checkPeriod() {
 }
 
 // update the authuser var when changing the input
-function authuserChange() {
+function authuserChange(main) {
+    if (main){
+        document.getElementById("authuserAsk").style.display = "none"
+    }
     authuser = document.getElementById("authuser").value
 }

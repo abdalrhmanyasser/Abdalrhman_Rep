@@ -6,11 +6,13 @@ function switchForm() {
     if (!openform) {
         document.getElementById("wrapper").style.display = "none";
         document.getElementById("personalised").style.display = "block";
+        document.getElementById("opentext").innerHTML = "Close";
         openform = true
     } else {
         openform = false
         document.getElementById("wrapper").style.display = "grid";
         document.getElementById("personalised").style.display = "none";
+        document.getElementById("opentext").innerHTML = "Open";
     }
 }
 

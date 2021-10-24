@@ -1,24 +1,24 @@
 import java.awt.Color;
-float m1 = 1;
+float m1 = 1.3;
 float x1;
 float x2;
 float y1;
 float y2;
 float m2 = 1;
-float r1 = 1;
-float r2 = 1;
+float r1 = 2;
+float r2 = 1.8;
 float[] x1arr;
 float[] x2arr;
 float[] y1arr;
 float[] y2arr;
-float g = 9.8/(60*60);
+float g = 4.9/(60*60);
 float x1_acc = 0;
 float y1_acc = 0;
 float x2_acc = 0;
 float y2_acc = 0;
 float x1_vel, x2_vel, y1_vel, y2_vel = 0;
-float a1 = PI/2;
-float a2 = PI/2;
+float a1 = PI/2+PI/5;
+float a2 = PI/2-PI/5;
 float a1_v = 0;
 float a2_v = 0;
 float i = 0;
@@ -93,8 +93,8 @@ void draw() {
   ellipse(x2 * 100, y2 * 100, m2 * 10, m2 * 10);
 
   // as momentum increases  , slowly pendulum comes to rest
-  //a1_v *= 0.99; // for drag
-  //a2_v *= 0.99; // for drag
+  a1_v *= 1.00000001; // for drag
+  a2_v *= 1.00000001; // for drag
 
 
 
@@ -102,12 +102,12 @@ void draw() {
   canvas.beginDraw();
   //canvas.background(0, 1);
   canvas.translate(cx, cy);
-  canvas.strokeWeight(3);
+  canvas.strokeWeight(500);
   canvas.stroke(3);
   if (i >= 360) {
     i = 0;
   }
-  i+= 0.5;
+  i+= 0.3;
   colorMode(HSB);
   color c = color(i, 255, 255);
   canvas.stroke(c);

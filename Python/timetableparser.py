@@ -1,5 +1,5 @@
 from datetime import datetime
-c_path = "C:\\Users\\abdal\\Desktop\\timetable conv type.txt"
+c_path = "D:\\timetable conv type.txt"
 final_var = []
 try:
     file = open(c_path, "rt")

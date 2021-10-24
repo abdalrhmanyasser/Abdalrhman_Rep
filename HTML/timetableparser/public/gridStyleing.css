@@ -1,9 +1,10 @@
 body{
-    --main-Color: #4e4545;
-    --secondary-Color: #ffffff50;
-    --sizeH: auto;
+    --main-Color: red;
+    --secondary-Color: black; 
+    --sizeW: 100px;
+    --sizeH: 25px;
     --margin: 2px;
-    --border-radius: 6px;
+    --border-radius: 4px;
 }
 .row0{
     grid-row: 1 / 1;
@@ -35,8 +36,11 @@ body{
 .row9{
     grid-row: 10 / 10;
 }
-.row10{
+.rowA{
     grid-row: 11 / 11;
+}
+.rowB{
+    grid-row: 12 / 12;
 }
 .column0{
     grid-column: 1 / 1;
@@ -74,9 +78,6 @@ body{
 .columnB{
     grid-column: 12 / 12;
 }
-.columnC{
-    grid-column: 13 / 13;
-}
 .containerNewGrid{
     width: auto;
     height: auto;
@@ -87,10 +88,11 @@ body{
     border-radius: var(--border-radius);
     background-color: var(--main-Color);
 }
-.containerNewGrid a{
+.containerNewGrid div{
     
     border:1px solid var(--main-Color);
     height: var(--sizeH);
+    width: var(--sizeW);
     margin: var(--margin);
     border-radius: var(--border-radius);
     background-color: var(--secondary-Color);

@@ -13,21 +13,21 @@
     <!-- do not remove i repeat do not remove -->
     <!-- i dont think its effeciant to put all the code in one file but its already done -->
     <script src="globalvars.js"></script>
-    <script src="https://apis.google.com/js/platform.js"  defer></script>
+    <script src="https://apis.google.com/js/platform.js" defer></script>
     <script src="Main.js"></script>
     <script defer async src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
-    onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+        onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
     <script src="googleCode.js"></script>
-    <link href="periodstyle.css" rel="stylesheet" type="text/css"/>
-    <link href="daystyle.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="gridStyleing.css"/>
-    <link href="sidebarCSS.css" rel="stylesheet" type="text/css"/>
+    <link href="gridStyleing.css" rel="stylesheet" type="text/css"/>
+    <link href="periodstyle.css" rel="stylesheet" type="text/css" />
+    <link href="daystyle.css" rel="stylesheet" type="text/css" />
+    <link href="sidebarCSS.css" rel="stylesheet" type="text/css" />
     <meta name="google-signin-client_id"
-        content="53486922153-8rhm1bn76auo7hdd63gst568hlvqe6vj.apps.googleusercontent.com"/>
-        <link rel="icon" href="https://time-table-reminder.firebaseapp.com/calendar-icon-white.jpg">
-    <link href="leftstyle.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        content="53486922153-8rhm1bn76auo7hdd63gst568hlvqe6vj.apps.googleusercontent.com" />
+    <link rel="icon" href="https://time-table-reminder.firebaseapp.com/calendar-icon-white.jpg">
+    <link href="leftstyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Time Table Reminder - Made by Abdalrhman</title>
 </head>
 
@@ -35,11 +35,11 @@
     <audio src="ES_Beep Tone Signal 54 - SFX Producer.mp3" id="audio"></audio>
     <!-- side bar -->
     <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
-        <a id="title" href="https://time-table-reminder.firebaseapp.com"><span><i
-                    class="material-icons">book_online</i></span><span class="icon-text">Time Table Reminder</span></a>
+        <div id="title" class="default"><span><i class="material-icons">book_online</i></span><span
+                class="icon-text">Time Table Reminder</span></div>
 
         <a class="pointer" onclick="tab2('Science');"><span><i class="material-icons">science</i></span><span
-                class="icon-text">Science</span></a>
+                class="icon-text">Science Block 9-12</span></a>
         <br>
         <a class="pointer" onclick="tab2('Electives');"><span><i class="material-icons">lightbulb</i></span><span
                 class="icon-text">Electives</span></a>
@@ -56,11 +56,23 @@
         <a class="pointer" onclick="tab2('Islamic');"><span><i class="material-icons">face</i></span><span
                 class="icon-text">Islamic</span></a>
         <br>
-        <a class="pointer" onclick="tab2('ESS');"><span><i class="material-icons">history_edu</i></span><span
-                class="icon-text">World History</span></a>
+        <a class="pointer" onclick="tab2('Social_Sciences');"><span><i class="material-icons">psychology</i></span><span
+                class="icon-text">Social Sciences</span></a>
         <br>
-        <a class="pointer" id="openbtn" onclick="switchForm()"><span><i class="material-icons">account_circle</i></span><span
+        <a class="pointer" id="openbtn" onclick="switchForm()"><span><i
+                    class="material-icons">account_circle</i></span><span id="opentext"
                 class="icon-text">Open</span></a>
+    </div>
+    <div id="authuserAsk">
+        <div class="authuserAsk">
+            <label for="authuser">
+                Your Authuntication User Number
+                <a href="learn more.html">Learn more</a>
+                <br>
+            </label>
+            <input type="number" id="authuser" name="authuser"><br>
+            <button class="btn" onclick="authuserChange(true)">Submit</button>
+        </div>
     </div>
     <!-- Sign in Form, using google sign in, this is opened through the switchForm and openForm methods in Main.js -->
     <div class="form-popup" id="myForm">
@@ -71,11 +83,13 @@
                 <a href="learn more.html">Learn more</a>
                 <br>
             </label>
-            <input onchange="authuserChange()" type="number" id="authuser" name="authuser">
+            <input onchange="authuserChange(false)" type="number" id="authuser" name="authuser">
             <br>
-            <br><div id="authorize_button" class="g-signin2" data-onsuccess="onSignIn"></div>
             <br>
-            <button id="signout_button" class="btn" onclick="signOut()">Sign out :(</button>
+            <div id="authorize_button" class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn"></div>
+            <br>
+            <button id="signout_button" class="btn" onclick="signOut()">Sign out <span><i
+                        class="material-icons">logout</i></span></button>
             <button class="btn" onclick="closeForm()">Close</button>
         </div>
     </div>
@@ -92,58 +106,64 @@
             <div class="w4">wednesday</div>
             <div class="w5">thursday</div>
 
-            <div class="p1">1<br>9:00 - 9:30</div>
-            <div class="p2">2<br>9:35 - 10:05</div>
-            <div class="p3">3<br>10:10 - 10:40</div>
-            
-            <div class="break1">break<br>11:40 - 11:10</div>
+            <div class="p1">1<br>8:00 - 8:40</div>
+            <div class="p2">2<br>8:45 - 9:25</div>
+            <div class="p3">3<br>9:30 - 10:10</div>
+            <div class="p4">4<br>10:15 - 10:55</div>
+
+            <div class="break1">break<br>11:00 - 11:40</div>
             <div class="break12">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
-            
-            <div class="p4">4<br>11:15 - 11:45</div>
-            <div class="p6">5<br>11:50 - 12:20</div>
-            <div class="p7">6<br>12:25 - 12:55</div>
-            <div class="p8">7<br>01:00 - 1:30</div>
+
+            <div class="p6">5<br>11:45 - 12:25</div>
+
+            <div class="break2">break<br>12:25 - 12:35</div>
+            <div class="break22">break<br>press CTRL + SHIFT + A to open the need tabs for this lesson</div>
+
+            <div class="p7">6<br>12:35 - 1:15</div>
+            <div class="p8">7<br>1:15 - 1:55</div>
+
             <!-- main cells of the table -->
-            <div class="period11" id="period11">Moral Education</div>
-            <div class="period12" id="period12">ESS</div>
-            <div class="period13" id="period13">Electives</div>
-            <div class="period14" id="period14">English</div>
-            <div class="period15" id="period15">Math</div>
-            <div class="period16" id="period16">Arabic</div>
-            <div class="period17" id="period17">Science</div>
+            <div class="Sunday Period1" id="Sunday Period1">English</div>
+            <div class="Sunday Period2" id="Sunday Period2">Electives</div>
+            <div class="Sunday Period3" id="Sunday Period3">Arabic</div>
+            <div class="Sunday Period4" id="Sunday Period4">Science Block 9-12</div>
+            <div class="Sunday Period5" id="Sunday Period5">English</div>
+            <div class="Sunday Period6" id="Sunday Period6">Math</div>
+            <div class="Sunday Period7" id="Sunday Period7">Social Sciences</div>
 
-            <div class="period21" id="period21">Islamic</div>
-            <div class="period22" id="period22">ESS</div>
-            <div class="period23" id="period23">Math</div>
-            <div class="period24" id="period24">English</div>
-            <div class="period25" id="period25">Arabic</div>
-            <div class="period26" id="period26">English</div>
-            <div class="period27" id="period27">Science</div>
+            <div class="Monday Period1" id="Monday Period1">Electives</div>
+            <div class="Monday Period2" id="Monday Period2">Math</div>
+            <div class="Monday Period3" id="Monday Period3">Arabic</div>
+            <div class="Monday Period4" id="Monday Period4">Science Block 9-12</div>
+            <div class="Monday Period5" id="Monday Period5">English</div>
+            <div class="Monday Period6" id="Monday Period6">Social Sciences</div>
+            <div class="Monday Period7" id="Monday Period7">Moral Education</div>
 
-            <div class="period31" id="period31">Arabic</div>
-            <div class="period32" id="period32">Electives</div>
-            <div class="period33" id="period33">Science</div>
-            <div class="period34" id="period34">English</div>
-            <div class="period35" id="period35">Math</div>
-            <div class="period36" id="period36">Islamic</div>
-            <div class="period37" id="period37">ESS</div>
+            <div class="Tuesday Period1" id="Tuesday Period1">Math</div>
+            <div class="Tuesday Period2" id="Tuesday Period2">Math</div>
+            <div class="Tuesday Period3" id="Tuesday Period3">Electives</div>
+            <div class="Tuesday Period4" id="Tuesday Period4">Social Sciences</div>
+            <div class="Tuesday Period5" id="Tuesday Period5">Science Block 9-12</div>
+            <div class="Tuesday Period6" id="Tuesday Period6">English</div>
+            <div class="Tuesday Period7" id="Tuesday Period7">Islamic</div>
 
-            <div class="period41" id="period41">Arabic</div>
-            <div class="period42" id="period42">English</div>
-            <div class="period43" id="period43">Science</div>
-            <div class="period44" id="period44">Electives</div>
-            <div class="period45" id="period45">Math</div>
-            <div class="period46" id="period46">Islamic</div>
-            <div class="period47" id="period47">ESS</div>
+            <div class="Wednesday Period1" id="Wednesday Period1">Arabic</div>
+            <div class="Wednesday Period2" id="Wednesday Period2">English</div>
+            <div class="Wednesday Period3" id="Wednesday Period3">Electives</div>
+            <div class="Wednesday Period4" id="Wednesday Period4">Science Block 9-12</div>
+            <div class="Wednesday Period5" id="Wednesday Period5">Islamic</div>
+            <div class="Wednesday Period6" id="Wednesday Period6">Social Sciences</div>
+            <div class="Wednesday Period7" id="Wednesday Period7">Math</div>
 
-            <div class="period51" id="period51">English</div>
-            <div class="period52" id="period52">Science</div>
-            <div class="period53" id="period53">Electives</div>
-            <div class="period54" id="period54">Math</div>
-            <div class="period55" id="period55">ESS</div>
-            <div class="period56" id="period56">Arabic</div>
-            <div class="period57" id="period57">Math</div>
+            <div class="Thursday Period1" id="Thursday Period1">English</div>
+            <div class="Thursday Period2" id="Thursday Period2">Arabic</div>
+            <div class="Thursday Period3" id="Thursday Period3">Electives</div>
+            <div class="Thursday Period4" id="Thursday Period4">Science Block 9-12</div>
+            <div class="Thursday Period5" id="Thursday Period5">Islamic</div>
+            <div class="Thursday Period6" id="Thursday Period6">Social Sciences</div>
+            <div class="Thursday Period7" id="Thursday Period7">Math</div>
         </div>
+
         <!-- this is the personalized part of the program, this is opened through the side bar button -->
         <div id="personalised" class="personalised">
             <div id="signed_in_content">
@@ -151,17 +171,13 @@
                 <div class="main">
                     <h1 class="text" id="Greetings">Hello There</h1>
                     <h3 class="text" id="Greetings_email">sign in to see all data</h3>
-                    <button
-                    class="btn"
-                        onclick="listCourses()">List Courses</button>
-                    <button id="openFormBtn"
-                    class="open-button btn"
-                        style="right:50px;top:10px;"
+                    <button class="btn" onclick="listCourses()">List Courses</button>
+                    <button id="openFormBtn" class="open-button btn" style="right:50px;top:10px;"
                         onclick="openForm()">Sign-In Form</button>
                     <div id="content"
                         style="display: grid;grid-template-columns: repeat(13, 1fr);grid-auto-rows: 75px;border-radius: 5px;">
                     </div>
-                    
+
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ var url2;
 var dt1;
 var boolean_a;
 var boolean_b;
-var authuser = 1;
+var authuser = 2;
 var openform = false;
 var signed_in = false;
 // var for sidebar
@@ -35,22 +35,25 @@ var SCOPES =
 // these are the periods in a two dimentional array
 // possibility for changing this dynamically through requesting it from the realtime database
 var listing = [
-    ['Moral_Education', 'ESS', 'Electives', 'break', 'English', 'Math', 'Arabic', 'Science'],
-    ['Islamic', 'ESS', 'Math', 'break', 'English', 'Arabic', 'English', 'Science'],
-    ['Arabic', 'Electives', 'Science', 'break', 'English', 'Math', 'Islamic', 'ESS'],
-    ['Arabic', 'English', 'Science', 'break', 'Electives', 'Math', 'Islamic', 'ESS'],
-    ['English', 'Science', 'Electives', 'break', 'Math', 'ESS', 'Arabic', 'Math']
+    ['English', 'Electives', 'Arabic', 'Science_Block_9-12', 'break', 'English', 'break', 'Math', 'Social_Sciences'],
+    ['Electives', 'Math', 'Arabic', 'Science_Block_9-12', 'break', 'English', 'break', 'Social_Sciences', 'Moral_Education'],
+    ['Math', 'Math', 'Electives', 'Social_Sciences', 'break', 'Science_Block_9-12', 'break', 'English', 'Islamic'],
+    ['Arabic', 'English', 'Electives', 'Science_Block_9-12', 'break', 'Islamic', 'break', 'Social_Sciences', 'Math'],
+    ['English', 'Arabic', 'Electives', 'Science_Block_9-12', 'break', 'Islamic', 'break', 'Social_Sciences', 'Math']
 ];
+
+var Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
 
 //this dictionary holds the times for the periods start
 // possibility for changing this dynamically through requesting it from the realtime database
 var timing_dictionary = {
-    "1": "09:00:09:30",
-    "2": "08:35:10:05",
-    "3": "10:10:10:40",
-    "4": "10:40:11:10",
-    "5": "11:15:11:45",
-    "6": "11:50:12:20",
-    "7": "12:25:12:55",
-    "8": "13:00:13:30"
+    "1": "08:00:08:40",
+    "2": "08:45:09:25",
+    "3": "09:30:10:10",
+    "4": "10:15:10:55",
+    "5": "11:00:11:40",
+    "6": "11:45:12:25",
+    "7": "12:25:12:35",
+    "8": "12:35:13:15",
+    "9": "13:15:13:55"
 };

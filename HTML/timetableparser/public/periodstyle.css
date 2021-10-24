@@ -1,211 +1,36 @@
-
-.period11{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 2; 
-     grid-row-end:2; 
+.Sunday{
+    grid-column: 2 / 2;
 }
-.period12{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 3; 
-     grid-row-end: 3; 
+.Monday{
+    grid-column: 3 / 3;
 }
-.period13{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 4; 
-    grid-row-end: 4; 
+.Tuesday{
+    grid-column: 4 / 4;
 }
-.period14{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 6; 
-    grid-row-end: 6; 
+.Wednesday{
+    grid-column: 5 / 5;
 }
-.period15{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 7; 
-    grid-row-end: 7; 
+.Thursday{
+    grid-column: 6 / 6;
 }
-.period16{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
+.Period1{
+    grid-row: 2 / 2;
 }
-.period17{
-    grid-column-start: 2;  
-    grid-column-end: 2; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+.Period2{
+    grid-row: 3 / 3;
 }
-.period21{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 2; 
-    grid-row-end: 2; 
+.Period3{
+    grid-row: 4 / 4;
 }
-.period22{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 3; 
-    grid-row-end: 3; 
+.Period4{
+    grid-row: 5 / 5;
 }
-.period23{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 4; 
-    grid-row-end: 4; 
+.Period5{
+    grid-row: 7 / 7;
 }
-.period24{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 6; 
-    grid-row-end: 6; 
+.Period6{
+    grid-row: 9 / 9;
 }
-.period25{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 7; 
-    grid-row-end: 7; 
-}
-.period26{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
-}
-.period27{
-    grid-column-start: 3; 
-    grid-column-end: 3; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
-}
-.period31{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 2; 
-    grid-row-end: 2; 
-}
-.period32{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 3; 
-    grid-row-end: 3; 
-}
-.period33{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 4; 
-    grid-row-end: 4; 
-}
-.period34{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 6; 
-    grid-row-end: 6; 
-}
-.period35{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 7; 
-    grid-row-end: 7; 
-}
-.period36{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
-}
-.period37{
-    grid-column-start: 4; 
-    grid-column-end: 4; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
-}
-.period41{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 2; 
-    grid-row-end: 2; 
-}
-.period42{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 3; 
-    grid-row-end: 3; 
-}
-.period43{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 4; 
-    grid-row-end: 4; 
-}
-.period44{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 6; 
-    grid-row-end: 6; 
-}
-.period45{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 7; 
-    grid-row-end: 7; 
-}
-.period46{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
-}
-.period47{
-    grid-column-start: 5; 
-    grid-column-end: 5; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
-}
-.period51{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 2; 
-    grid-row-end: 2; 
-}
-.period52{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 3; 
-    grid-row-end: 3; 
-}
-.period53{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 4; 
-    grid-row-end: 4; 
-}
-.period54{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 6; 
-    grid-row-end: 6; 
-}
-.period55{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 7; 
-    grid-row-end: 7; 
-}
-.period56{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 8; 
-    grid-row-end: 8; 
-}
-.period57{
-    grid-column-start: 6; 
-    grid-column-end: 6; 
-    grid-row-start: 9; 
-    grid-row-end: 9; 
+.Period7{
+    grid-row: 10 / 10;
 }

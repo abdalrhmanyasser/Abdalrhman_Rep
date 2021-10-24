@@ -50,6 +50,12 @@ main .sidebar {
 }
 #title{
   padding-bottom: 40px;
+  padding: 8px 8px 8px 18px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  margin-bottom: 30px;
 }
 #main {
   margin-left: 65px;
