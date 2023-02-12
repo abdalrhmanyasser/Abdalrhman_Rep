@@ -23,7 +23,7 @@ void setup() {
     Serial.begin(9600);
     Serial.println("<Arduino is ready>");
     pinMode(9, OUTPUT);
-      pinMode(12, OUTPUT);
+    pinMode(12, OUTPUT);
     pinMode(11, OUTPUT);
     pinMode(A0, INPUT);
     pinMode(A1, INPUT);
@@ -49,8 +49,7 @@ void change(){
 void loop() {
     recvWithEndMarker();
     showNewData();
-    if (analogRead(A0) < 50 && analogRead(A1) < 50){
-    }else if (analogRead(A0) < 10){
+    if (analogRead(A0) < 10){
       states = false;
     }else if (analogRead(A1) < 10){
       states = true;
@@ -59,8 +58,8 @@ void loop() {
       change();
       index++;
     }else if (states == false){
-      float reading = 0.01723 * readUltrasonicDistance(2, 3);
-    Serial.println(0.01723 * readUltrasonicDistance(2, 3));
+      float reading = 0.01723 * readUltrasonicDistance(2, 5);
+      Serial.println(0.01723 * reading);
       if (reading < 20){
         digitalWrite(9, HIGH);
         digitalWrite(12, LOW);
@@ -103,7 +102,7 @@ void recvWithEndMarker() {
     }
 }
 
-void showNewData() {
+int showNewData() {
     if (newData == true) {
       Serial.print("This just in ... ");
       Serial.println(receivedChars);

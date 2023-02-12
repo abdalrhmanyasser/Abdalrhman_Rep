@@ -1,12 +1,12 @@
 import java.awt.Color;
-float m1 = 1.3;
+float m1 = 1;
+float m2 = 1;
 float x1;
 float x2;
 float y1;
 float y2;
-float m2 = 1;
 float r1 = 2;
-float r2 = 1.8;
+float r2 = 2;
 float[] x1arr;
 float[] x2arr;
 float[] y1arr;
@@ -17,11 +17,12 @@ float y1_acc = 0;
 float x2_acc = 0;
 float y2_acc = 0;
 float x1_vel, x2_vel, y1_vel, y2_vel = 0;
-float a1 = PI/2+PI/5;
-float a2 = PI/2-PI/5;
+float a1 = HALF_PI;
+float a2 = HALF_PI;
 float a1_v = 0;
 float a2_v = 0;
 float i = 0;
+int SizeOfColor = 1;
 PGraphics canvas;
 float px2 = -1; // previous position of second pendulum sphere - x offset
 float py2 = -1; // previos position of second pendulum sphere - y offset
@@ -102,7 +103,7 @@ void draw() {
   canvas.beginDraw();
   //canvas.background(0, 1);
   canvas.translate(cx, cy);
-  canvas.strokeWeight(500);
+  canvas.strokeWeight(SizeOfColor);
   canvas.stroke(3);
   if (i >= 360) {
     i = 0;

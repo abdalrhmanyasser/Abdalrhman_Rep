@@ -1,14 +1,14 @@
 import java.awt.Color;
 PGraphics canvas;
 int xMoved = 0;
-int[] ratio = {400,120};
+int[] ratio = {400,125};
 int[] circle1 = {300, 300, (ratio[0])};
 float x = (circle1[1]+circle1[2]/2) - (ratio[1]/2);
 float y = 300;
 float RevsInnerCircle;
 float RevsBiggerCircle;
 int circle2Size = ratio[1];
-float distanceFromCenterC2 = 0.75;
+float distanceFromCenterC2 = 1.5;
 boolean drawCircle = true;
 
 void setup() {
@@ -21,8 +21,8 @@ void setup() {
 
 void draw(){
 
-  for (int i = 0; i < 20;i++){
-    xMoved+=2;
+  for (int i = 0; i < 10;i++){
+    xMoved+=8;
     RevsInnerCircle = xMoved/(2*PI*circle2Size);
     
     RevsBiggerCircle = xMoved/(2*PI*circle1[2]);

@@ -4,5 +4,6 @@ y = 2i + 3i + 4i
 j = 2i / 3i - 1i + y
 print "welp hello there"Str
 print "hey there"Str
+print x + y
 func int name{int d, Str a, Str s, Str g, Str d, Str x/
 \

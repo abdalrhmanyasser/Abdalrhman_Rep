@@ -235,6 +235,11 @@ function setup() {
                             (fakePeriodIndex)
                         ).toString()
                     );
+                    console.log((
+                        Days[currentday] + 
+                        " Period" +
+                        (fakePeriodIndex)
+                    ).toString())
                     if (previous_period_html != null) {
                         previous_period_html.style.backgroundColor = "#ffffff50";
                     }

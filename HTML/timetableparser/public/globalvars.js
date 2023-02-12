@@ -44,6 +44,8 @@ var listing = [
 
 var Days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"]
 
+var fakePeriodIndex;
+
 //this dictionary holds the times for the periods start
 // possibility for changing this dynamically through requesting it from the realtime database
 var timing_dictionary = {

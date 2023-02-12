@@ -1,4 +1,4 @@
-c_path = r"C:\Users\abdal\Desktop\Abdalrhman Yasser\Visual Code\Python\text.jk"
+c_path = r"D:\Visual Code\Abdalrhman_Rep\Python\text.jk"
 class func:
     def __init__(self, _funcName, _params, _returnType, _placeInFile, _code):
         self.funcName = _funcName
@@ -14,7 +14,6 @@ except:
     file = open(c_path, "x")
     file.close()
     file = open(c_path, "rt")
-
 depth = 0
 state = "normal"
 var_types = ["int", "string"]
