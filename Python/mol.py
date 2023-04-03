@@ -1,2 +1,0 @@
-from molWeight import *
-findweight()

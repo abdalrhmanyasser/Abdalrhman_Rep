@@ -7,7 +7,7 @@ pygame.init()
 width = 500
 height = 500
 delay = 0.2
-scale = 50
+scale = 25
 font = pygame.font.Font('freesansbold.ttf', 32)
 play = False
 dead_ = False
@@ -41,6 +41,7 @@ def dead():
     play = False
     print(dead_, play)
     print("Ha YoU DiEd")
+    quit()
 pygame.display.set_caption('Snake Multiplayer 3000')
 class snake:
     def __init__(self, speed, id, x, y, dirx, diry, color):
@@ -188,7 +189,7 @@ while running:
     # Fill the background with white
     screen.fill((255, 255, 255))
     
-    if play and not dead_:
+    if play:
         snake1.grow()
         snake2.grow()
         snake1.move()
@@ -201,7 +202,7 @@ while running:
             i.draw()
         snake1.draw()
         snake2.draw()
-        if play and not dead_:
+        if play:
             screen.blit(snake1.text, textRect1)
             screen.blit(snake2.text, textRect2)
         else:
