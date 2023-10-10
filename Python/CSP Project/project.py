@@ -47,7 +47,7 @@ def createRecipe():
     # once it is finished return the recipe
     return newRecipe
 
-def printRecipes(filters = [], onlyKeys = False):
+def printRecipes(filters = [], onlyKeys = False) -> None:
     currentRecipes = {}
     # apply a check if there are no recipes to display, if there isn't exit the function and return nothing
     if Recipes == {}:
@@ -76,80 +76,87 @@ def printRecipes(filters = [], onlyKeys = False):
 # main loop of the program where input is taken and calls to other functions are made
 while True:
     print("\n\nMain Menu")
-    choice = input("please choose from the following options:\n\t1. Add a new recipe\n\t2. Delete a recipe\n\t3. Edit a recipe\n\t4. View recipes\n\nYour Choice : ")
+    choice = input("please choose from the following options:\n\t1. Add a new recipe\n\t2. Delete a recipe\n\t3. Edit a recipe\n\t4. View recipes\n\t5. Exit\n\nYour Choice : ")
     # check each choice entered and do what each one needs
-    match choice:
-        case "1":
-            # intilize a flag variables
-            newName = False
-            # loop until a unique name is chosen
-            while not newName:
-                nameOfRecipe = input("Enter the name of the recipe: ")
-                if nameOfRecipe not in list(Recipes.keys()):
-                    newName = True
-            newRecipe = createRecipe()
-            # if its empty then do nothing
-            if newRecipe != []:
-                Recipes[nameOfRecipe] = newRecipe
-            
-        # delete choice
-        case "2":
-            # check if there is something to delete
-            if len(Recipes) == 0:
-                # if there are no recipes display the information to the user
-                print("\nthere are no recipes to be deleted\n")
-                continue
-            # flag variable
-            print("To delete a recipe please chose the number that it corrisponds to, here are the following options:")
-            # display the available options
-            printRecipes([], True)
-            # loop until a choice is chosen or its canceled
-            while True:
-                choice = input("Enter the number you would like to delete (if you want to cancel type \"cancel\"): ")
-                # check if the choice is logical
-                if choice.isnumeric() and 1 <= int(choice) <= len(Recipes):
-                    Recipes.pop(list(Recipes.keys())[int(choice)-1])
-                    break
+    if choice.isnumeric() and 0 < int(choice) <= 5:
+        match choice:
+            case "1":
+                # intilize a flag variables
+                newName = False
+                # loop until a unique name is chosen
+                while not newName:
+                    nameOfRecipe = input("Enter the name of the recipe: ")
+                    if nameOfRecipe not in list(Recipes.keys()):
+                        newName = True
+                newRecipe = createRecipe()
+                # if its empty then do nothing
+                if newRecipe != []:
+                    # load the data into the list
+                    Recipes[nameOfRecipe] = newRecipe
                 
-                # if the choice is to cancel break out of the match case statement
-                if choice.lower() == "cancel":
-                    break
-                # if the choice doesnt match any of the above statements the print invalid
-                print("you have entered an invalid answer please enter a number that is between 1 and " + str(len(Recipes)))
-        # Edit Choice
-        case "3":
-            # check if there is something to edit
-            if len(Recipes) == 0:
-                print("\nthere are no recipes to be edit\n")
-                continue
-            print("To edit a recipe please chose the number that it corrisponds to, here are the following options:")
-            # display the available options
-            printRecipes([], True)
-            # loop until finish the edit or canceled
-            while True:
-                choice = input("Enter the number you would like to edit (if you want to cancel type \"cancel\"): ")
-                # check if the choice is logical
-                if choice.isnumeric() and 1 <= int(choice) <= len(Recipes):
-                    newRecipe = createRecipe()
-                    # check if the user canceled the recipe process otherwise make the changes
-                    if newRecipe != []:
-                        Recipes[list(Recipes.keys())[int(choice)-1]] = newRecipe
-                    break
-                # if the choice is to cancel break out of the match case statement
-                if choice.lower() == "cancel":
-                    break
-                # displaying the invalid message if the input is illogical
-                print("you have entered an invalid answer please enter a number that is between 1 and " + str(len(Recipes)))
+            # delete choice
+            case "2":
+                # check if there is something to delete
+                if len(Recipes) == 0:
+                    # if there are no recipes display the information to the user
+                    print("\nthere are no recipes to be deleted\n")
+                    continue
+                # flag variable
+                print("To delete a recipe please chose the number that it corrisponds to, here are the following options:")
+                # display the available options
+                printRecipes([], True)
+                # loop until a choice is chosen or its canceled
+                while True:
+                    choice = input("Enter the number you would like to delete (if you want to cancel type \"cancel\"): ")
+                    # check if the choice is logical
+                    if choice.isnumeric() and 1 <= int(choice) <= len(Recipes):
+                        Recipes.pop(list(Recipes.keys())[int(choice)-1])
+                        break
                     
-        # View Recipes Choice
-        case "4":
-            # take the filter if there are any
-            inputfilters  = input("Filters (ingrediants you want to be included) if you dont want to include any filter just press enter\nExample:\nMeat, Flour, Egg\n\nEnter here : ")
-            # check the filters and pass them to the printRecipes function
-            if inputfilters != "":
-                filters = inputfilters.split(", ")
-                printRecipes(filters)
-            # if there are filter then print all available recipes
-            else:
-                printRecipes()
+                    # if the choice is to cancel break out of the match case statement
+                    if choice.lower() == "cancel":
+                        break
+                    # if the choice doesnt match any of the above statements the print invalid
+                    print("you have entered an invalid answer please enter a number that is between 1 and " + str(len(Recipes)))
+            # Edit Choice
+            case "3":
+                # check if there is something to edit
+                if len(Recipes) == 0:
+                    print("\nthere are no recipes to be edit\n")
+                    continue
+                print("To edit a recipe please chose the number that it corrisponds to, here are the following options:")
+                # display the available options
+                printRecipes([], True)
+                # loop until finish the edit or canceled
+                while True:
+                    choice = input("Enter the number you would like to edit (if you want to cancel type \"cancel\"): ")
+                    # check if the choice is logical
+                    if choice.isnumeric() and 1 <= int(choice) <= len(Recipes):
+                        newRecipe = createRecipe()
+                        # check if the user canceled the recipe process otherwise make the changes
+                        if newRecipe != []:
+                            Recipes[list(Recipes.keys())[int(choice)-1]] = newRecipe
+                        break
+                    # if the choice is to cancel break out of the match case statement
+                    if choice.lower() == "cancel":
+                        break
+                    # displaying the invalid message if the input is illogical
+                    print("you have entered an invalid answer please enter a number that is between 1 and " + str(len(Recipes)))
+                        
+            # View Recipes Choice
+            case "4":
+                # take the filter if there are any
+                inputfilters  = input("""Filters (ingrediants you want to be included) if you dont want to include any filter just press enter\nExample:\nMeat, Flour, Egg\n\nEnter here : """)
+                # check the filters and pass them to the printRecipes function
+                if inputfilters != "":
+                    filters = inputfilters.split(", ")
+                    printRecipes(filters)
+                # if there are filter then print all available recipes
+                else:
+                    printRecipes()
+            case "5":
+                exit()
+    else:
+        print("please input a valid number between 1 and 5")
+
 

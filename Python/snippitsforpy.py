@@ -75,6 +75,7 @@ try:
 except:
     file = open("path", "x")
     file.close()
+    file = open("path", "+xtw")
     file = open("path", "rt")
 
 content = file.read()
@@ -106,3 +107,26 @@ wb.save("file_name.xlsx")                        #used for submiting thee file a
 #---------------------------------------------#
 
 
+#***************#
+# PyGame Simple #
+# Starter       #
+#***************#
+
+#***********************#
+import pygame
+  
+pygame.init()
+  
+# CREATING CANVAS
+canvas = pygame.display.set_mode((500, 500))
+  
+# TITLE OF CANVAS
+pygame.display.set_caption("My Board")
+exit = False
+  
+while not exit:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit = True
+    pygame.display.update()
+#***********************#
