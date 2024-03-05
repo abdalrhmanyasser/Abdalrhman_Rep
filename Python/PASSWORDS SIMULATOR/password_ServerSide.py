@@ -1,32 +1,35 @@
 import random
-import smtplib, ssl
 import string
-import HASHING
-from email.message import EmailMessage
+import base64
+from email.mime.text import MIMEText
+from google_auth_oauthlib.flow import InstalledAppFlow
+from googleapiclient.discovery import build
+from requests import HTTPError
+from email.mime.text import MIMEText
 def compare(email, hashed_pass):
     try:
-        file = open("D:\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "rt")
+        file = open("C:\\Users\\abdal\\Documents\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "rt")
     except:
-        file = open("D:\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "x")
+        file = open("C:\\Users\\abdal\\Documents\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "x")
         file.close()
-        file = open("D:\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "rt")
+        file = open("C:\\Users\\abdal\\Documents\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "rt")
 
     content = file.readlines()
     if content != []:
         for line in content:
             if (email == line.split("\t")[0]):
                 if (hashed_pass == line.split("\t")[1]):
-                    if (Send_auth()):
+                    if (Send_auth(email)):
                         return True
     return False
 
 def SignUp_Client(email, hashed_pass):
     try:
-        file = open("D:\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "at")
+        file = open("C:\\Users\\a+bdal\\Documents\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "a+")
     except:
-        file = open("D:\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "x")
+        file = open("C:\\Users\\abdal\\Documents\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "x")
         file.close()
-        file = open("D:\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "at")
+        file = open("C:\\Users\\abdal\\Documents\\Visual Code\\Abdalrhman_Rep\\Python\\PASSWORDS SIMULATOR\\EMAIL_DATA_BASE.DTF", "a+")
     if not email in file.read():
         file.write("\n" + email + "\t" + hashed_pass)
 
@@ -34,30 +37,29 @@ port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
 sender_email = "dev.abdalrhman@gmail.com"  # Enter your address
 receiver_email = "abdalrhman.yasser6e@gmail.com"  # Enter receiver address
-password = input("Type your password and press enter: ")
 
-def Send_auth():
+SCOPES = [
+        "https://www.googleapis.com/auth/gmail.send"
+    ]
+def Send_auth(email):
 
+    
+    flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
+    creds = flow.run_local_server(port=0)
 
-    smtp_server = "smtp.gmail.com"
-    sender_email = "dev.abdalrhman@gmail.com"
-    receiver_email = "abdalrhman.yasser6e@gmail.com"
+    service = build('gmail', 'v1', credentials=creds)
     code = (''.join(random.choices(string.ascii_uppercase + string.digits, k = 10)))
-    message = """your Special Authentication Code is : """ + code
-    port = 465  # For SSL
-    password = "5E3^I$TUpPKDA$bu"
+    message = MIMEText("""your Special Authentication Code is : """ + code)
+    message['to'] = email
+    message['subject'] = 'Code for Python Messaging'
+    create_message = {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode()}
 
-    msg = EmailMessage()
-    msg.set_content(message)
-    msg['Subject'] = 'Code for Python Messaging'
-    msg['From'] = sender_email
-    msg['To'] = receiver_email
-
-
-    context = ssl.create_default_context()
-    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-        server.login(sender_email, password)
-        server.send_message(msg)
+    try:
+        message = (service.users().messages().send(userId="me", body=create_message).execute())
+        print(F'sent message to {message} Message Id: {message["id"]}')
+    except HTTPError as error:
+        print(F'An error occurred: {error}')
+    
     User_given_code = input("what is the code")
     if User_given_code == code:
         return True

@@ -15,7 +15,7 @@ def SignIn():
     _email = input("Please Enter Your Email:\n")
     _password = input("Please Enter Your Password\n")
     if (compare(_email, hash(_password))):
-        print("Hello")
+        print("You are now signed in")
 
 def SignUp():
     SignUp_Client(input("Please Enter Your Email:\n"), hash(input("Please Enter Your Password\n")))

@@ -1,3 +1,10 @@
 {
-    "python.pythonPath": "C:\\Users\\Abdalrhman Yasser\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
+    "python.pythonPath": "C:\\Users\\Abdalrhman Yasser\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "files.associations": {
+        "iostream": "cpp",
+        "memory": "cpp",
+        "limits": "cpp",
+        "utility": "cpp",
+        "xutility": "cpp"
+    }
 }
