@@ -1,7 +1,6 @@
 import colorsys
 import numpy
 import pygame as pg
-import time
 import random
 delay = 1/60
 timeStoped = False
@@ -173,6 +172,8 @@ def simulateEverything():
             if gravityEnable:
                 applyGravity()
                 point.drag()
+            if point.y > height:
+                point.vy *= -1
     else:
         canvas.blit(startImg, (width-100,10))
 

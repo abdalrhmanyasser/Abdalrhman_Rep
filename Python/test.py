@@ -5,7 +5,7 @@ pygame.init()
 window = pygame.display.set_mode((200, 200))
 
 seguisy80 = pygame.freetype.SysFont("segoeuisymbol", 100)
-emoji, rect = seguisy80.render('🛑', "RED")
+emoji, rect = seguisy80.render('😂', "ORANGE")
 rect.center = window.get_rect().center
 
 run = True

@@ -1,4 +1,4 @@
-c_path = r"D:\Visual Code\Abdalrhman_Rep\Python\text.jk"
+c_path = r"C:\Users\abdal\Documents\Visual Code\Abdalrhman_Rep\Python\text.jk"
 class func:
     def __init__(self, _funcName, _params, _returnType, _placeInFile, _code):
         self.funcName = _funcName

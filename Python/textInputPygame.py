@@ -46,16 +46,17 @@ while True:
 
 		if event.type == pygame.KEYDOWN:
 
-			# Check for backspace
-			if event.key == pygame.K_BACKSPACE:
+			if active:
+				# Check for backspace
+				if event.key == pygame.K_BACKSPACE:
 
-				# get text input from 0 to -1 i.e. end.
-				user_text = user_text[:-1]
+					# get text input from 0 to -1 i.e. end.
+					user_text = user_text[:-1]
 
-			# Unicode standard is used for string
-			# formation
-			else:
-				user_text += event.unicode
+				# Unicode standard is used for string
+				# formation
+				else:
+					user_text += event.unicode
 	
 	# it will set background color of screen
 	screen.fill((255, 255, 255))
