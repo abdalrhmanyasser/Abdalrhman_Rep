@@ -1,6 +1,7 @@
 {
     "python.pythonPath": "C:\\Users\\Abdalrhman Yasser\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
     "files.associations": {
+        "*.embeddedhtml": "html",
         "iostream": "cpp",
         "memory": "cpp",
         "limits": "cpp",
@@ -50,6 +51,12 @@
         "xloctime": "cpp",
         "xmemory": "cpp",
         "xstring": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "chrono": "cpp",
+        "forward_list": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "sstream": "cpp",
+        "vector": "cpp"
     }
 }

@@ -11,7 +11,7 @@ onkeydown = onkeyup = function (e) {
             tab2();
         }
         map = []
-    }
+    } 
 };
 
 // ----------------------- //

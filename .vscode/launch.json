@@ -1,185 +1,194 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "(gdb) Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/a.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "/path/to/gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                },
-                {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
-            ]
-        },
-        {
-            "type": "java",
-            "name": "Launch Ellipsoid",
-            "request": "launch",
-            "mainClass": "Ellipsoid",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "Launch Point",
-            "request": "launch",
-            "mainClass": "Point",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "Launch Speed",
-            "request": "launch",
-            "mainClass": "Speed",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "Launch speed",
-            "request": "launch",
-            "mainClass": "speed",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "Launch calculator",
-            "request": "launch",
-            "mainClass": "calculator",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "Launch Sphere",
-            "request": "launch",
-            "mainClass": "Sphere",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "Launch Shapes",
-            "request": "launch",
-            "mainClass": "Shapes",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Cylinder",
-            "request": "launch",
-            "mainClass": "Cylinder",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Mathematics",
-            "request": "launch",
-            "mainClass": "Mathematics",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - BMI",
-            "request": "launch",
-            "mainClass": "BMI",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Triangle",
-            "request": "launch",
-            "mainClass": "Triangle",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - PrintName",
-            "request": "launch",
-            "mainClass": "PrintName",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Student",
-            "request": "launch",
-            "mainClass": "Student",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - NameOfClass",
-            "request": "launch",
-            "mainClass": "NameOfClass",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - main",
-            "request": "launch",
-            "mainClass": "main",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - Student",
-            "request": "launch",
-            "mainClass": "Java.Student",
-            "projectName": "Visual Code_bb74102a"
-        },
-        {
-            "name": "Launch Chrome",
-            "request": "launch",
-            "type": "pwa-chrome",
-            "url": "http://localhost:8080",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "name": "Launch index.html",
-            "type": "chrome",
-            "request": "launch",
-            "file": "${workspaceFolder}/HTML/timetableparser/index.html"
-        },
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}",
-            "console": "integratedTerminal"
-        },
-        {
-            "name": "(Windows) Launch",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "enter program name, for example ${workspaceFolder}/a.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "console": "externalTerminal"
-        },
-        {
-            "name": "C/C++: cl.exe build and debug active file",
-            "type": "cppvsdbg",
-            "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "console": "integratedTerminal",
-            "preLaunchTask": "C/C++: cl.exe build active file"
-        }
-    ]
+	"version": "0.2.0",
+	"configurations": [
+		
+		{
+			"name": "Python Debugger: Current File with Arguments",
+			"type": "debugpy",
+			"request": "launch",
+			"program": "${file}",
+			"console": "integratedTerminal",
+			"args": ["${command:pickArgs}"]
+		},
+		{
+			"name": "(gdb) Launch",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "enter program name, for example ${workspaceFolder}/a.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "/path/to/gdb",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				},
+				{
+					"description": "Set Disassembly Flavor to Intel",
+					"text": "-gdb-set disassembly-flavor intel",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"type": "java",
+			"name": "Launch Ellipsoid",
+			"request": "launch",
+			"mainClass": "Ellipsoid",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "Launch Point",
+			"request": "launch",
+			"mainClass": "Point",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "Launch Speed",
+			"request": "launch",
+			"mainClass": "Speed",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "Launch speed",
+			"request": "launch",
+			"mainClass": "speed",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "Launch calculator",
+			"request": "launch",
+			"mainClass": "calculator",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "Launch Sphere",
+			"request": "launch",
+			"mainClass": "Sphere",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "Launch Shapes",
+			"request": "launch",
+			"mainClass": "Shapes",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - Cylinder",
+			"request": "launch",
+			"mainClass": "Cylinder",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - Mathematics",
+			"request": "launch",
+			"mainClass": "Mathematics",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - BMI",
+			"request": "launch",
+			"mainClass": "BMI",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - Triangle",
+			"request": "launch",
+			"mainClass": "Triangle",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - PrintName",
+			"request": "launch",
+			"mainClass": "PrintName",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - Student",
+			"request": "launch",
+			"mainClass": "Student",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - NameOfClass",
+			"request": "launch",
+			"mainClass": "NameOfClass",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - main",
+			"request": "launch",
+			"mainClass": "main",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"type": "java",
+			"name": "CodeLens (Launch) - Student",
+			"request": "launch",
+			"mainClass": "Java.Student",
+			"projectName": "Visual Code_bb74102a"
+		},
+		{
+			"name": "Launch Chrome",
+			"request": "launch",
+			"type": "pwa-chrome",
+			"url": "http://localhost:8080",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"name": "Launch index.html",
+			"type": "chrome",
+			"request": "launch",
+			"file": "${workspaceFolder}/HTML/timetableparser/index.html"
+		},
+		{
+			"name": "Python: Current File",
+			"type": "python",
+			"request": "launch",
+			"program": "${file}",
+			"console": "integratedTerminal"
+		},
+		{
+			"name": "(Windows) Launch",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "enter program name, for example ${workspaceFolder}/a.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"console": "externalTerminal"
+		},
+		{
+			"name": "C/C++: cl.exe build and debug active file",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${fileDirname}",
+			"environment": [],
+			"console": "integratedTerminal",
+			"preLaunchTask": "C/C++: cl.exe build active file"
+		}
+	]
 }

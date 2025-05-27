@@ -1,0 +1,19 @@
+Sections:
+section seg8000 (attr=<acrwx> align=1):
+    8000: symbol: reset EXPR(-32768=0x8000) ABS 
+    8000: data(2): a9 ff 
+    8002: data(3): 8d 02 60 
+    8005: symbol: loop EXPR(-32763=0x8005) ABS 
+    8005: data(2): a9 55 
+    8007: data(3): 8d 00 60 
+    800a: data(2): a9 aa 
+    800c: data(3): 8d 00 60 
+    800f: data(3): 4c 05 80 
+section segfffc (attr=<acrwx> align=1):
+    fffc: data(2): 00 80 
+    fffe: data(2): 00 80 
+Symbols:
+loop EXPR(-32763=0x8005) ABS 
+reset EXPR(-32768=0x8000) ABS 
+__RPTCNT EXPR(-1=0xffff) INTERNAL 
+__VASM EXPR(0=0x0) INTERNAL 
