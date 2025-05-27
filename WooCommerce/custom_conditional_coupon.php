@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Conditional Coupon
  * Description: Applies different discount amounts based on cart total and currency using the same logic for multiple coupon codes.
- * Version: 1.5
+ * Version: 1.6
  * Author: Abdalrhman Yaser
  */
 
@@ -29,7 +29,7 @@ function get_cart_subtotal_excluding_eye_care() {
         }
 
         // Add to subtotal
-        $custom_subtotal += $product->get_price() * $quantity;
+        $custom_subtotal += $product->get_price();
     }
 
     return $custom_subtotal;
@@ -97,7 +97,7 @@ function custom_coupon_apply_dynamic_discount($discount, $discounting_amount, $c
 
     if (!$matched_coupon) return $discount;
 
-    $cart_total = $cart->get_subtotal();
+    $cart_total = get_cart_subtotal_excluding_eye_care();
     $discount = 0;
 
     if (in_array($currency, ['AED', 'SAR'])) {
