@@ -12,24 +12,35 @@ function get_custom_coupon_codes() {
 }
 
 function get_cart_subtotal_excluding_eye_care() {
-    $excluded_category_slug = 'eye-care-product'; // Make sure this is the actual category **slug**, not the name
+    $parent_category_slug = 'eye-care-product'; // Replace with actual slug
     $custom_subtotal = 0;
+
+    // Get the term object for the parent category
+    $parent_term = get_term_by('slug', $parent_category_slug, 'product_cat');
+
+    if (!$parent_term || is_wp_error($parent_term)) {
+        return WC()->cart->get_subtotal(); // Fallback to full subtotal
+    }
+
+    // Get all child category IDs including parent
+    $excluded_term_ids = get_term_children($parent_term->term_id, 'product_cat');
+    $excluded_term_ids[] = $parent_term->term_id;
 
     foreach (WC()->cart->get_cart() as $cart_item) {
         $product = $cart_item['data'];
         $product_id = $product->get_id();
         $quantity = $cart_item['quantity'];
 
-        // Get category slugs for this product
-        $categories = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'slugs']);
+        // Get the term IDs the product belongs to
+        $product_term_ids = wp_get_post_terms($product_id, 'product_cat', ['fields' => 'ids']);
 
-        // Skip if in excluded category
-        if (in_array($excluded_category_slug, $categories)) {
+        // Skip product if it belongs to any excluded category
+        if (array_intersect($product_term_ids, $excluded_term_ids)) {
             continue;
         }
 
         // Add to subtotal
-        $custom_subtotal += $product->get_price();
+        $custom_subtotal += $product->get_price() * $quantity;
     }
 
     return $custom_subtotal;
@@ -131,15 +142,20 @@ function custom_coupon_apply_dynamic_discount($discount, $discounting_amount, $c
             $discount = 5;
         }
     }
+    $itemCount = 0;
+    foreach (WC()->cart->get_cart() as $cart_item) {
+        $itemCount++;
+    }
 
     if ($discount > 0) {
-        return $discount;
+        return $discount / $itemCount;
     } else {
         // If threshold isn't met, remove WooCommerce's default discount (just in case)
         remove_code();
         return 0;
     }
 }
+
 function remove_code(){
 
     $cart = WC()->cart;
