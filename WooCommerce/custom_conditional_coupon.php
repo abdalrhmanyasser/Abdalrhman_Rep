@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Custom Conditional Coupon
  * Description: Applies different discount amounts based on cart total and currency using the same logic for multiple coupon codes.
- * Version: 1.6
+ * Version: 1.7
  * Author: Abdalrhman Yaser
  */
 
@@ -59,8 +59,12 @@ function custom_coupon_check_conditions_and_throw_error($valid, $coupon) {
     }
     
     // Check conditions based on currency
-    if (in_array($currency, ['AED', 'SAR']) && $cart_total < 200) {
-        wc_add_notice(__('This coupon requires a minimum subtotal of 200 AED or SAR.'), 'error');
+    if ($currency === 'AED'  && $cart_total < 200) {
+        wc_add_notice(__('This coupon requires a minimum subtotal of 200 AED'), 'error');
+        remove_code();
+        return false;
+    } elseif ($currency === 'SAR' && $cart_total < 200) {
+        wc_add_notice(__('This coupon requires a minimum subtotal of 200 SAR'), 'error');
         remove_code();
         return false;
     } elseif ($currency === 'KWD' && $cart_total < 17) {
@@ -79,7 +83,11 @@ function custom_coupon_check_conditions_and_throw_error($valid, $coupon) {
         wc_add_notice(__('This coupon requires a minimum subtotal of 21 OMR.'), 'error');
         remove_code();
         return false;
-    } elseif (!in_array($currency, ['AED', 'SAR', 'KWD', 'USD', 'BHD', 'OMR'])) {
+    } elseif ($currency === 'QAR' && $cart_total < 295) {
+        wc_add_notice(__('This coupon requires a minimum subtotal of 21 OMR.'), 'error');
+        remove_code();
+        return false;
+    } elseif (!in_array($currency, ['AED', 'SAR', 'KWD', 'USD', 'BHD', 'OMR', 'QAR'])) {
         wc_add_notice(__('This coupon is not valid for your store currency.'), 'error');
         remove_code();
         return false;
@@ -111,35 +119,47 @@ function custom_coupon_apply_dynamic_discount($discount, $discounting_amount, $c
     $cart_total = get_cart_subtotal_excluding_eye_care();
     $discount = 0;
 
-    if (in_array($currency, ['AED', 'SAR'])) {
-        if ($cart_total >= 300) {
+    if ($currency === 'AED') {
+        if ($cart_total > 300) {
+            $discount = 100;
+        } elseif ($cart_total >= 200) {
+            $discount = 50;
+        }
+    } elseif ($currency === 'SAR') {
+        if ($cart_total > 310) {
             $discount = 100;
         } elseif ($cart_total >= 200) {
             $discount = 50;
         }
     } elseif ($currency === 'KWD') {
-        if ($cart_total >= 24) {
+        if ($cart_total > 25) {
             $discount = 8;
         } elseif ($cart_total >= 17) {
             $discount = 4;
         }
     } elseif ($currency === 'USD') {
-        if ($cart_total >= 80) {
+        if ($cart_total > 82) {
             $discount = 27;
         } elseif ($cart_total >= 55) {
             $discount = 13;
         }
     } elseif ($currency === 'OMR') {
-        if ($cart_total >= 31) {
+        if ($cart_total > 32) {
             $discount = 10.5;
         } elseif ($cart_total >= 21) {
             $discount = 5;
         }
     } elseif ($currency === 'BHD') {
-        if ($cart_total >= 30) {
+        if ($cart_total > 31) {
             $discount = 10;
         } elseif ($cart_total >= 20.5) {
             $discount = 5;
+        }
+    } elseif ($currency === 'QAR') {
+        if ($cart_total > 300) {
+            $discount = 100;
+        } elseif ($cart_total >= 200) {
+            $discount = 50;
         }
     }
     $itemCount = 0;
