@@ -8,7 +8,7 @@
 
 // Define the coupon codes that should trigger the custom logic
 function get_custom_coupon_codes() {
-    return ['FAY8', 'SAF8', 'MUS10', 'Sla10', 'Reem10', 'Hamda10', 'Ahlam10', 'She10', 'Asma10', 'Gamila10']; // Add more codes here
+    return ['FAY8', 'SAF8', 'MUS10', 'Sla10', 'ht10', 'Reem10', 'Hamda10', 'Ahlam10', 'She10', 'Asma10', 'Gamila10']; // Add more codes here
 }
 
 function get_cart_subtotal_excluding_eye_care() {
@@ -83,8 +83,8 @@ function custom_coupon_check_conditions_and_throw_error($valid, $coupon) {
         wc_add_notice(__('This coupon requires a minimum subtotal of 21 OMR.'), 'error');
         remove_code();
         return false;
-    } elseif ($currency === 'QAR' && $cart_total < 295) {
-        wc_add_notice(__('This coupon requires a minimum subtotal of 21 OMR.'), 'error');
+    } elseif ($currency === 'QAR' && $cart_total < 200) {
+        wc_add_notice(__('This coupon requires a minimum subtotal of 200 QAR.'), 'error');
         remove_code();
         return false;
     } elseif (!in_array($currency, ['AED', 'SAR', 'KWD', 'USD', 'BHD', 'OMR', 'QAR'])) {
