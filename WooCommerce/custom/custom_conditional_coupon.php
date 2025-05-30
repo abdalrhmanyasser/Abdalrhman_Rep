@@ -179,9 +179,7 @@ function custom_coupon_apply_dynamic_discount($discount, $discounting_amount, $c
 function remove_code(){
 
     $cart = WC()->cart;
-    $currency = get_woocommerce_currency();
     $custom_codes = get_custom_coupon_codes();
-    $applied_coupons = $cart->get_applied_coupons();
 	foreach ($cart->get_coupons() as $code => $coupon) {
             if (in_array(strtoupper($code), array_map('strtoupper', $custom_codes)))
             {
